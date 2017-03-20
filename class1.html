@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="css/theme/simple.css" id="theme">
   <link rel="stylesheet" href="css/custom.css">
   <!-- For syntax highlighting -->
-  <!-- light editor --><!--<link rel="stylesheet" href="lib/css/light.css">-->
+  <!-- light editor --><link rel="stylesheet" href="lib/css/light.css">
   <!-- dark editor -->
   <!--<link rel="stylesheet" href="lib/css/dark.css">
   <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -45,17 +45,17 @@
   <div class="reveal">
     <div class="slides">
       <section>
-        <h2>Introduction to JavaScript</h2><img src="images/javascript.png" alt="Javascript Logo" class="noborder" style=
+        <h2>Einführung in JavaScript</h2><img src="images/javascript.png" alt="Javascript Logo" class="noborder" style=
         "max-height:400px;">
 
-        <h2>Kapitel 1</h2>
+        <h3>Kapitel 1</h3>
       </section>
 
       <section>
         
-		<h3>Erste Schritte in Javascript</h3>
-		<div class="left-align">
-          <h4>Einige Regeln</h4>
+		<h2>Erste Schritte in Javascript</h2>
+		<div class="left-align"><br>
+          <h3>Einige Regeln</h3>
 
           <ul>
             <li>Ich bin hier für dich!</li>
@@ -76,7 +76,7 @@
       </section>
 
       <section>
-        <h2>JavaScript ist eine Sprache zur Clientseitigen Webprogrammierung</h2><img src="images/client-server.png" alt=
+        <h3>JavaScript ist eine Sprache zur Clientseitigen Webprogrammierung</h3><img src="images/client-server.png" alt=
         "Laptop and server connected via the internet">
 
         <h3>JavaScript arbeitet mit HTML &amp; CSS</h3>
@@ -260,9 +260,14 @@ console.log('Hello World!'); // Kurze Kommentare bis Zeilenende</code>
       <section>
         <h3>Ausgaben auf dem Bildschirm:</h3>
 
-        <p>Öffne eine popup box.</p>
+        <p>Text in popup box anzeigen:</p>
         <pre>
 <code class="javascript">alert('Hello World!');
+</code>
+</pre>
+        <p>Eingabe in popup box abfragen:</p>
+        <pre>
+<code class="javascript"> eingabe = prompt('Geben Sie eine Eingabe ein:');
 </code>
 </pre>
 
@@ -272,7 +277,7 @@ console.log('Hello World!'); // Kurze Kommentare bis Zeilenende</code>
 </code>
 </pre>
 
-        <p>Füge an die Webseite an:</p>
+        <p>Text an Webseite anfügen:</p>
         <pre>
 <code class="javascript">document.write('Hello World!');
 </code>
@@ -280,7 +285,7 @@ console.log('Hello World!'); // Kurze Kommentare bis Zeilenende</code>
       </section>
 
       <section>
-        <h3>Aufgabe</h3>
+        <h3>Aufgabe</h3><br>
 
         <ul>
           <li>Öffne <code>index.html</code>.</li>
@@ -289,7 +294,33 @@ console.log('Hello World!'); // Kurze Kommentare bis Zeilenende</code>
 
           <li>Probiere die verschiedenen Ausgaben.</li>
         </ul>
-      </section><!-- Variables -->
+      </section>
+	  
+	  <section>
+        <h3>Eine Lösung könnte so aussehen:</h3>
+
+        <pre>
+<code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Test Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;This is my awesome JavaScript code.&lt;/p&gt;
+    &lt;script&gt;
+	alert('Hello World!');	\\ Popup box
+	eingabe = prompt("Eingabe einfügen:");\\ Popup-box Eingabeabfrage
+	console.log(eingabe);	\\ Ausgabe auf Konsole
+	document.write("Ausgabe in die Webseite"); \\ Ausgabe in Webseite
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code>
+</pre>
+      </section>
+	  
+	  
+	  <!-- Variables -->
 
       <section>
         <h3>Variablen</h3>
@@ -299,7 +330,7 @@ console.log('Hello World!'); // Kurze Kommentare bis Zeilenende</code>
       </section>
 
       <section>
-        <h3>Deklarieren einer Variable</h3>
+        <h3>Deklarieren und Initialisieren von Variablen</h3>
 
         <p>Um eine Variable zu deklarieren (erzeugen) einfach <code>var</code> und den Variablenname.</p>
         <pre>
@@ -355,39 +386,39 @@ console.log(numberOfKittens);
       </section><!-- Data Types-->
 
       <section>
-        <h3>Daten Typen</h3>
+        <h3>Datentypen</h3>
 
         <ul>
           <li>
-            <b>string</b> string of characters
+            <b>string</b> Zeichenketten
             <pre>
 <code class="javascript">var userName = 'Jane Lane';</code>
 </pre>
           </li>
 
           <li>
-            <b>number</b> integer or floating point
+            <b>number</b> Ganze- oder Gleitkommazahl
             <pre>
 <code class="javascript">var myAge = 30;</code>
 </pre>
           </li>
 
           <li>
-            <b>boolean</b> true or false
+            <b>boolean</b> true oder false
             <pre>
 <code class="javascript">var catsAreBest = true;</code>
 </pre>
           </li>
 
           <li>
-            <b>undefined</b> value that hasn't been defined
+            <b>undefined</b> kein Wert zugewiesen
             <pre>
 <code class="javascript">var favoriteThings;</code>
 </pre>
           </li>
 
           <li>
-            <b>null</b> an explicitly empty value
+            <b>null</b> leerer Wert
             <pre>
 <code class="javascript">var goodPickupLines = null;</code>
 </pre>
@@ -412,18 +443,6 @@ var cutenessRating = 9.6;
 
       <section>
         <h3>Arithmetische Operatoren</h3>
-
-        <p>Mit Zahlen rechnen!</p>
-        <pre>
-<code class="javascript">var numberOfKittens = 5;
-var numberOfPuppies = 4;
-var numberOfAnimals = numberOfKittens + numberOfPuppies;
-</code>
-</pre>
-      </section>
-
-      <section>
-        <h3>Arithmetic Operators</h3>
 
         <table>
           <thead>
@@ -598,7 +617,99 @@ console.log(allTheFruit);
   </div>
   <script src="js/reveal.js"></script>
         <script>
-            Reveal.initialize();
+            Reveal.initialize({
+
+	// Display controls in the bottom right corner
+	controls: true,
+
+	// Display a presentation progress bar
+	progress: true,
+
+	// Display the page number of the current slide
+	slideNumber: true,
+
+	// Push each slide change to the browser history
+	history: true,
+
+	// Enable keyboard shortcuts for navigation
+	keyboard: true,
+
+	// Enable the slide overview mode
+	overview: true,
+
+	// Vertical centering of slides
+	center: true,
+
+	// Enables touch navigation on devices with touch input
+	touch: true,
+
+	// Loop the presentation
+	loop: false,
+
+	// Change the presentation direction to be RTL
+	rtl: false,
+
+	// Randomizes the order of slides each time the presentation loads
+	shuffle: false,
+
+	// Turns fragments on and off globally
+	fragments: true,
+
+	// Flags if the presentation is running in an embedded mode,
+	// i.e. contained within a limited portion of the screen
+	embedded: false,
+
+	// Flags if we should show a help overlay when the questionmark
+	// key is pressed
+	help: true,
+
+	// Flags if speaker notes should be visible to all viewers
+	showNotes: false,
+
+	// Number of milliseconds between automatically proceeding to the
+	// next slide, disabled when set to 0, this value can be overwritten
+	// by using a data-autoslide attribute on your slides
+	autoSlide: 0,
+
+	// Stop auto-sliding after user input
+	autoSlideStoppable: true,
+
+	// Use this method for navigation when auto-sliding
+	autoSlideMethod: Reveal.navigateNext,
+
+	// Enable slide navigation via mouse wheel
+	mouseWheel: false,
+
+	// Hides the address bar on mobile devices
+	hideAddressBar: true,
+
+	// Opens links in an iframe preview overlay
+	previewLinks: false,
+
+	// Transition style
+	transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+	// Transition speed
+	transitionSpeed: 'default', // default/fast/slow
+
+	// Transition style for full page slide backgrounds
+	backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+
+	// Number of slides away from the current that are visible
+	viewDistance: 3,
+
+	// Parallax background image
+	parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+
+	// Parallax background size
+	parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
+
+	// Number of pixels to move the parallax background per slide
+	// - Calculated automatically unless specified
+	// - Set to 0 to disable movement along an axis
+	parallaxBackgroundHorizontal: null,
+	parallaxBackgroundVertical: null
+});
         </script>
 </body>
 </html>
