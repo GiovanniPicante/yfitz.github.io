@@ -288,11 +288,12 @@ console.log('Hello World!'); // Kurze Kommentare bis Zeilenende</code>
         <h3>Aufgabe</h3><br>
 
         <ul>
-          <li>Öffne <code>index.html</code>.</li>
+          <li>Öffne eine neue Datei <code>index.html</code>.</li>
+		  
+		   <li>Probiere die verschiedenen Ausgaben.</li>
 
           <li>Ergänze Kommentare</li>
 
-          <li>Probiere die verschiedenen Ausgaben.</li>
         </ul>
       </section>
 	  
@@ -303,15 +304,20 @@ console.log('Hello World!'); // Kurze Kommentare bis Zeilenende</code>
 <code class="html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
-    &lt;title&gt;Test Page&lt;/title&gt;
+    &lt;title&gt;Erste HTML mit Javascript&lt;/title&gt;
   &lt;/head&gt;
   &lt;body&gt;
-    &lt;p&gt;This is my awesome JavaScript code.&lt;/p&gt;
+    &lt;p&gt;Dies ist die erste HTML-datei mit JavaScript code.&lt;/p&gt;
     &lt;script&gt;
+	
 	alert('Hello World!');	\\ Popup box
+	
 	eingabe = prompt("Eingabe einfügen:");\\ Popup-box Eingabeabfrage
+	
 	console.log(eingabe);	\\ Ausgabe auf Konsole
+	
 	document.write("Ausgabe in die Webseite"); \\ Ausgabe in Webseite
+	
     &lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;
@@ -330,7 +336,7 @@ console.log('Hello World!'); // Kurze Kommentare bis Zeilenende</code>
       </section>
 
       <section>
-        <h3>Deklarieren und Initialisieren von Variablen</h3>
+        <h3>Deklarieren und Initialisieren</h3>
 
         <p>Um eine Variable zu deklarieren (erzeugen) einfach <code>var</code> und den Variablenname.</p>
         <pre>
@@ -439,6 +445,13 @@ var cutenessRating = 9.6;
         <p>JavaScript wandelt integer automatisch in float um.</p>
 
         <p><code>NaN</code> = Not-A-Number</p>
+		<p> Zeichenkette in integer oder float umwandeln:</p>
+		<pre>
+<code class="javascript">var string = "5";
+var ganzeZahl = parseInt(string);
+var floatZahl = parseFloat(string);
+</code>
+</pre>
       </section>
 
       <section>
