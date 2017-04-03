@@ -34,224 +34,350 @@ if( window.location.search.match( /print-pdf/gi ) ) {
     <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
 </head>
-<body><div class="reveal">
-      <div class="slides">
-          <section>
-        <h2>Einführung in JavaScript</h2><img src="images/javascript.png" alt="Javascript Logo" class="noborder" style=
-        "max-height:400px;">
 
-        <h3>Kapitel 3</h3>
-      </section>
-        <!-- Arrays -->
-          <section>
-            <h3>Arrays</h3>
-            <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> ist eine Liste von Elementen.</p>
-  <pre><code class="javascript">var arrayName = [value0, value1];</code></pre><br />
-            <p>Die Element können unterschiedlichen Datentyp haben.</p>
-  <pre><code class="javascript">var rainbow = ['Red', 'Orange', 'Yellow', 'Green', 'Blue'];
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+          <h2>Einführung in JavaScript</h2><img src="images/javascript.png" alt="Javascript Logo" class="noborder" style=
+          "max-height:400px;">
+
+          <h3>Kapitel 3</h3>
+        
+      </section><!-- Arrays -->
+	  <section data-markdown>
+		<script type="text/template">
+  ## Who Am I?
+
+  * Lead developer of [Modernizr](//modernizr.com)
+  * Project lead of [HTML5 Boilerplate](//h5bp.com)
+  * I curate that [page of polyfills](//bit.ly/polyfills)
+  * Member of jQuery Team
+  * Developer Relations on Google Chrome team
+  
+		</script>
+	  </section>
+    <section data-markdown>
+        <script type="text/template">
+            ## Page title
+
+            A paragraph with some text and a [link](http://hakim.se).
+        </script>
+        <aside class="notes" data-markdown>
+            - talk about page titles
+            - anecdote about paragraphs
+        </aside>
+    </section>
+      <section>
+        <h3>Arrays</h3>
+
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> ist eine
+        Liste von Elementen.</p>
+        <pre>
+<code class="javascript">var arrayName = [value0, value1];</code>
+</pre><br>
+
+        <p>Die Element können unterschiedlichen Datentyp haben.</p>
+        <pre>
+<code class="javascript">var rainbow = [&#39;Red&#39;, &#39;Orange&#39;, &#39;Yellow&#39;, &#39;Green&#39;, &#39;Blue&#39;];
 
 var lotteryNumbers = [33, 72, 64, 18, 17, 85];
 
-var myFavoriteThings = ['Broccoli', 1024, 'Sherlock'];</code></pre>
-          </section>
+var myFavoriteThings = [&#39;Broccoli&#39;, 1024, &#39;Sherlock&#39;];</code>
+</pre>
+      </section>
 
-          <section>
-            <h3>Länge und Elemente</h3>
-            <p>Die Methode <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length">length</a></code> zählt die Elemente.</p>
-  <pre><code class="javascript">var rain = ['Red', 'Orange', 'Yellow', 'Green','Blue'];
-console.log(rainbowColors.length);</code></pre><br>
-          
-            <p>Zugriff auf Elemente mit <strong> [] </strong> und Index.(beginnt bei 0)</p>
-  <pre><code class="javascript">var firstColor = rainbowColors[0];
-var lastColor  = rainbowColors[4];</code></pre><br>
+      <section>
+        <h3>Länge und Elemente</h3>
 
-			<p>Verändern von Array Elementen</p>
-  <pre><code class="javascript">rain[3] = "White";</code></pre><br>
-          </section>
+        <p>Die Methode <code><a href=
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length">length</a></code> zählt
+        die Elemente.</p>
+        <pre>
+<code class="javascript">var rain = [&#39;Red&#39;, &#39;Orange&#39;, &#39;Yellow&#39;, &#39;Green&#39;,&#39;Blue&#39;];
+console.log(rainbowColors.length);</code>
+</pre><br>
 
-          <section>
-            <h3>Verlängern von Arrays</h3>
-            <p>Arrays haben keine feste Länge. Einfach durch <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push">push</a></code> können diese verlängert werden.</p>
-  <pre><code class="javascript">var myFavoriteThings = ['Broccoli', 1024, 'Sherlock'];
+        <p>Zugriff auf Elemente mit <strong>[]</strong> und Index.(beginnt bei 0)</p>
+        <pre>
+<code class="javascript">var firstColor = rainbowColors[0];
+var lastColor  = rainbowColors[4];</code>
+</pre><br>
 
-myFavoriteThings.push('Dancing');</code></pre>
-          </section>
+        <p>Verändern von Array Elementen</p>
+        <pre>
+<code class="javascript">rain[3] = &quot;White&quot;;</code>
+</pre><br>
+      </section>
 
-          <section>
-            <h3>Let's Develop It</h3>
-            <p>Create an array of your favorite foods. <br />Print a few values onto your screen.</p>
-          </section>
+      <section>
+        <h3>Verlängern von Arrays</h3>
 
-        <!-- Arrays and loops-->
-          <section>
-            <h3>Arrays + loops = BFF</h3>
-            <img src="img/holding-hands.jpg" alt="Couple holding hands"/>
-            <p class="credit">Photo credit: <a href="http://www.flickr.com/photos/mtsofan/8221708017/" target="_blank">John</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></p>
-          </section>
+        <p>Arrays haben keine feste Länge. Einfach durch <code><a href=
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push">push</a></code> können diese
+        verlängert werden.</p>
+        <pre>
+<code class="javascript">var myFavoriteThings = [&#39;Broccoli&#39;, 1024, &#39;Sherlock&#39;];
 
-          <section>
-            <h3>Iterating through arrays</h3>
-            <p>Use a <code>for</code> loop to easily work with each item in an array.</p>
-  <pre><code class="javascript">var rainbowColors = ['Red', 'Orange', 'Yellow', 'Green',
-  'Blue', 'Indigo', 'Violet'];
+myFavoriteThings.push(&#39;Dancing&#39;);</code>
+</pre>
+      </section><!-- Arrays and loops-->
 
+      <section>
+        <h3>Schleifen durch Arrays</h3>
+
+        <p><code>for-</code>Schleife durchläuft Array.</p>
+        <pre>
+<code class="javascript">var rainbowColors = [&#39;Red&#39;, &#39;Orange&#39;, &#39;Yellow&#39;, &#39;Green&#39;,&#39;Blue&#39;];
+  
 for (var i = 0; i &lt; rainbowColors.length; i++) {
   console.log(rainbowColors[i]);
-}</code></pre>
-          </section>
+}</code>
+</pre>
 
-          <section>
-            <h3>Let's Develop It</h3>
-            <p>Use a <code>for</code> loop to print a list of all your favorite foods.</p>
-          </section>
+        <p>Alternativ <code>foreach-</code>Schleife</p>
+        <pre>
+<code class="javascript">array.forEach(function(arrayElement) { 
+                console.log(arrayElement); 
+});
+</code>
+</pre>
 
-      <!-- Objects -->
-        <section>
-          <h3>Objects</h3>
-          <img src="img/matches.jpg" alt="Collection of matches"/>
-          <p class="credit">Photo credit:  <a href="https://flic.kr/p/8RnSsa">Jir&iacute; Volejn&iacute;k</a> <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/">cc</a>
-        </section>
+        <p>Beispiel oben als foreach:</p>
+        <pre>
+<code class="javascript">rainbowColors.forEach(function(arrayElement) {
+  console.log(arrayElement);
+});</code>
+</pre>
+      </section>
 
-        <section>
-          <h3>Objects</h3>
-          <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects">Objects</a> let us store a collection of properties.</p>
-<pre><code class="javascript">var objectName = {
+      <section>
+        <h3>Übungsaufgabe</h3><br>
+
+        <p>Erzeugen Sie in einer Schleife ein Zahlenarray der ersten 10 Vielfache von der Zahl 3 und lassen Sie diese anschließend
+        auf dem Bildschirm ausgeben.</p><br>
+
+        <p>Verwenden Sie anschließend die for-Schleife um die Zahlen, die kleiner als 13 sind auszugeben.</p>
+      </section>
+
+      <section>
+        <h3>Array Funktionen</h3>
+
+        <ul>
+          <li>push (Element anhängen) a b c&lt;- d</li>
+
+          <li>pop (Element abhängen) a b c-&gt; d</li>
+
+          <li>unshift (Element vorne anhängen) a-&gt;b c d</li>
+
+          <li>shift (Element vorne abhängen) a&lt;- b c d</li>
+
+          <li>reverse (Umkehren) d c b a</li>
+
+          <li>sort (Array sortieren) a b c d</li>
+
+          <li>concat (zwei Arrays zusammenfügen)</li>
+
+          <li>slice (Teile ermitteln)</li>
+
+          <li>splice (Elemente entfernen , einfügen)</li>
+        </ul>
+      </section><!-- Objects -->
+
+      <section>
+        <h3>Objekte</h3>
+
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects">Objekte</a> lassen uns eine
+        Menge von Eigenschaften speichern.</p>
+        <pre>
+<code class="javascript">var objectName = {
   propertyName: propertyValue,
   propertyName: propertyValue
 };
-</code></pre>
-<pre><code class="javascript">var user = {
-  hometown: 'Atlanta, GA',
-  hair: 'Auburn',
-  likes: ['knitting', 'code'],
+</code>
+</pre>
+        <pre>
+<code class="javascript">var user = {
+  hometown: &#39;Atlanta, GA&#39;,
+  hair: &#39;Auburn&#39;,
+  likes: [&#39;knitting&#39;, &#39;code&#39;],
   birthday: {month: 10, day: 17}
-};</code></pre>
-        </section>
+};</code>
+</pre>
+      </section>
 
-        <section>
-          <h3>Accessing Objects</h3>
-          <p>You can retrieve values using <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_Accessors#Dot_notation">dot notation</a></strong></p>
-<pre><code class="javascript">var user = {
-  hometown: 'Atlanta, GA',
-  hair: 'Auburn'
+      <section>
+        <h3>Zugriff auf Objekte</h3>
+
+        <p>Mit der <strong><a href=
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_Accessors#Dot_notation">Punkt
+        Notation</a></strong> kann man auf das Objekt zugreifen.</p>
+        <pre>
+<code class="javascript">var user = {
+  hometown: &#39;Atlanta, GA&#39;,
+  hair: &#39;Auburn&#39;
 };
 
-var usersHometown = user.hometown;</code></pre><br>
-          <p>Or using <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_Accessors#Bracket_notation">bracket notation</a></strong> (like arrays)</p>
-<pre><code class="javascript">var usersHair = user['hair'];</code></pre>
-        </section>
+var usersHometown = user.hometown;</code>
+</pre><br>
 
-        <section>
-          <h3>Changing Objects</h3>
-          <p>You can use dot or bracket notation to change properties</p>
-<pre><code class="javascript">var user = {
-  hometown: 'Atlanta, GA',
-  hair: 'Auburn'
+        <p>oder mit der <strong><a href=
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_Accessors#Bracket_notation">Klammer
+        Notation</a></strong> (so wie bei Arrays)</p>
+        <pre>
+<code class="javascript">var usersHair = user[&#39;hair&#39;];</code>
+</pre>
+      </section>
+
+      <section>
+        <h3>Objecte verändern</h3>
+
+        <p>Mit beiden Notationen kann man die Eigenschaften eines Objekts verändern.</p>
+        <pre>
+<code class="javascript">var user = {
+  hometown: &#39;Atlanta, GA&#39;,
+  hair: &#39;Auburn&#39;
 };
 
-user.hair = 'blue';</code></pre><br>
-          <p>Add new properties</p>
-<pre><code class="javascript">user.married = true;
-</code></pre><br>
-          <p>Or delete them</p>
-<pre><code class="javascript">delete user.married;</code></pre>
-        </section>
+user.hair = &#39;blue&#39;;</code>
+</pre>
 
-        <section>
-          <h3>Arrays of Objects</h3>
-          <p>Because arrays can hold any data type, they can also hold objects.</p>
-<pre><code class="javascript">var users = [
-  {name: 'Jolene', age: 21},
-  {name: 'Alexa',  age: 18}
+        <p>Neue Eigenschaften hinzufügen</p>
+        <pre>
+<code class="javascript">user.married = true;
+</code>
+</pre>
+
+        <p>oder löschen.</p>
+        <pre>
+<code class="javascript">delete user.married;</code>
+</pre>
+      </section>
+
+      <section>
+        <h3>Arrays von Objekten</h3>
+
+        <p>Weil Arrays verschiedene Datentypen enthalten können, können diese auch Objekte enthalten.</p>
+        <pre>
+<code class="javascript">var users = [
+  {name: &#39;Jolene&#39;, age: 21},
+  {name: &#39;Alexa&#39;,  age: 18}
 ];
 
 for (var i = 0; i &lt; users.length; i++) {
   var user = users[i];
-  console.log(user.name + ' is ' + user.age + ' years old.');
-}</code></pre>
-        </section>
+  console.log(user.name + &#39; is &#39; + user.age + &#39; years old.&#39;);
+}</code>
+</pre>
+      </section>
 
-        <section>
-          <h3>Objects</h3>
-          <p>Just like other data types, objects can be passed into functions:</p>
-<pre><code class="javascript">var jolene = {
+      <section>
+        <h3>Objekte</h3>
+
+        <p>Objekte können auch als Argumente von Funktionen übergeben werden.</p>
+        <pre>
+<code class="javascript">var jolene = {
   age: 21,
-  hairColor: 'Auburn',
-  likes: ['pizza', 'tacos'],
+  hairColor: &#39;Auburn&#39;,
+  likes: [&#39;pizza&#39;, &#39;tacos&#39;],
   birthday: {month: 3, day: 14, year: 1995}
 }
 
 function describeUser(user) {
-  console.log('You are ' + user.age + ' years old with '
-  + user.hairColor + ' hair.');
+  console.log(&#39;You are &#39; + user.age + &#39; years old with &#39;
+  + user.hairColor + &#39; hair.&#39;);
 }
 
-describeUser(jolene);</code></pre>
-        </section>
+describeUser(jolene);</code>
+</pre>
+      </section>
 
-        <section>
-          <h3>Let's Develop It</h3>
-          <p>Create an object to hold information on your favorite recipe. It should have properties for:</p>
-          <ul>
-            <li><code>recipeTitle</code> (a string)</li>
-            <li><code>servings</code> (a number)</li>
-            <li><code>ingredients</code> (an array of strings)</li>
-            <li><code>directions</code> (a string)</li>
-          </ul>
-          <br><br>
-          <p>Try displaying some information about your recipe.</p>
-          <p>Bonus: Create a loop to list all the ingredients.</p>
-        </section>
+      <section>
+        <h3>Aufgabe</h3>
 
-      <!-- Object Methods -->
-        <section>
-          <h3>Object methods</h3>
-          <p>Objects can also hold functions.</p>
-<pre><code class="javascript">var jolene = {
+        <p>Erzeuge ein Objekt, welches Informationen zu deinen Liebingsgerichten speichert.</p>
+
+        <p>Es sollte folgende Eigenschaften enthalten:</p>
+
+        <ul>
+          <li><code>Getraenk</code> (a string)</li>
+
+          <li><code>Gericht</code> (a string)</li>
+
+          <li><code>Obstsorten</code> (an array of strings)</li>
+
+          <li><code>Eissorte</code> (a string)</li>
+        </ul><br>
+        <br>
+
+        <p>Lassen Sie die Eigenschaften einlesen und ausgeben</p>
+
+        <p>Die Obstsorten in einer Schleife ausgeben.</p>
+      </section><!-- Objekt Methoden -->
+
+      <section>
+        <h3>Objekt Methoden</h3>
+
+        <p>Objekte können auch Methoden enthalten.</p>
+        <pre>
+<code class="javascript">var jolene = {
   age: 21,
-  hairColor: 'Auburn',
+  hairColor: &#39;Auburn&#39;,
   talk: function() {
-    console.log('Hello!');
+    console.log(&#39;Hello!&#39;);
   },
   eat: function(food) {
-    console.log('Yum, I love ' + food);
+    console.log(&#39;Yum, I love &#39; + food);
   }
 };
-</code></pre><br>
-          <p>Call object methods using dot notation:</p>
-<pre><code class="javascript">jolene.talk();
+</code>
+</pre>
 
-jolene.eat('pizza');</code></pre>
-        </section>
+        <p>Methodenaufruf mit der Punkt-Notation:</p>
+        <pre>
+<code class="javascript">jolene.talk();
 
-        <section>
-          <h3>Let's Develop It</h3>
-          <p>Go back to your recipe object. Add a function called <code>letsCook</code> that says "I'm hungry! Let's cook..." with the name of your recipe title.</p>
-          <p>Call your new method.</p>
-        </section>
+jolene.eat(&#39;pizza&#39;);</code>
+</pre>
+      </section>
 
-      <!-- Final slides-->
-        <section>
-          <h3>You did it!</h3>
-          <img src="img/fireworks.jpg" alt="Fireworks"/>
-          <p class="credit">Photo credit: <a href="http://www.flickr.com/photos/markwdw85/9425240584/" target="_blank">Mark W.</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></p>
-        </section>
+      <section>
+        <h3>Aufgabe</h3>
 
-        <section>
-          <h3>Resources</h3>
-            <ul>
-              <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" target="_blank">JavaScript Guide</a>, from the Mozilla Developers Network.</li>
-              <li><a href="http://www.codecademy.com/tracks/javascript" target="_blank">Code Academy</a>, with interactive JavaScript lessons to help you review.</li>
-            </ul>
-        </section>
+        <p>Nehme nochmals das Lieblings-Objekt her. Ergänze eine Funktion <code>hunger</code>, welches ausgibt &quot;Ich habe
+        hunger auf ...&quot; ergänzt durch das Lieblingsgericht.</p><br>
 
-        <section>
-          <h2>Questions?</h2>
-        </section>
+        <p>Rufe die Funktion auf.</p>
+      </section><!-- Final slides-->
+
+      <section>
+        <h3>Referenzen</h3>
+
+        <ul>
+          <li>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" target="_blank">JavaScript Guide</a>, from the
+            Mozilla Developers Network.
+          </li>
+
+          <li>
+            <a href="http://www.codecademy.com/tracks/javascript" target="_blank">Code Academy</a>, mit interactiven Javascript
+            Beispiele.
+          </li>
+
+          <li>
+            <a href="http://jsforcats.com/">JavaScript For Cats,</a> Basics für cats.
+          </li>
+
+          <li>
+            <a href="%20https://www.w3schools.com/js/">W3Schools JavaScript,</a> Basics und TryIt Beispiele.
+          </li>
+        </ul>
+      </section>
     </div>
-  </div><script src="js/reveal.js">
-</script> <script>
-      Reveal.initialize({
+  </div>
+<script src="js/reveal.js"></script> 
+<script>
+    Reveal.initialize({
 
         // Display controls in the bottom right corner
         controls: true,
