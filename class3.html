@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="lib/css/zenburn.css">
   <link rel="stylesheet" href="plugin/accessibility-helper/css/accessibility-helper.css">-->
   <!--If the query includes 'print-pdf', include the PDF print sheet -->
+  <!-- print mit strg P -->
 
   <script>
 if( window.location.search.match( /print-pdf/gi ) ) {
@@ -67,37 +68,27 @@ var myFavoriteThings = [&#39;Broccoli&#39;, 1024, &#39;Sherlock&#39;];</code>
 
       <section>
         <h3>Länge und Elemente</h3>
-
         <p>Die Methode <code><a href=
         "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length">length</a></code> zählt
         die Elemente.</p>
         <pre>
-<code class="javascript">var rain = [&#39;Red&#39;, &#39;Orange&#39;, &#39;Yellow&#39;, &#39;Green&#39;,&#39;Blue&#39;];
-console.log(rainbowColors.length);</code>
-</pre><br>
-
+<code class="javascript">
+var rainbow = [&#39;Red&#39;, &#39;Orange&#39;, &#39;Yellow&#39;, &#39;Green&#39;,&#39;Blue&#39;];
+console.log(rainbow.length);</code>
+</pre>
         <p>Zugriff auf Elemente mit <strong>[]</strong> und Index.(beginnt bei 0)</p>
         <pre>
-<code class="javascript">var firstColor = rainbowColors[0];
-var lastColor  = rainbowColors[4];</code>
-</pre><br>
-
+<code class="javascript">
+var firstColor = rainbow[0];
+var lastColor  = rainbow[4];</code>
+</pre>
         <p>Verändern von Array Elementen</p>
         <pre>
-<code class="javascript">rain[3] = &quot;White&quot;;</code>
-</pre><br>
-      </section>
-
-      <section>
-        <h3>Verlängern von Arrays</h3>
-
-        <p>Arrays haben keine feste Länge. Einfach durch <code><a href=
-        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push">push</a></code> können diese
-        verlängert werden.</p>
+<code class="javascript">rainbow[3] = &quot;White&quot;;</code>
+</pre>
+        <p>Verlängern von Arrays (Arrays haben keine feste Länge.)<p>
         <pre>
-<code class="javascript">var myFavoriteThings = [&#39;Broccoli&#39;, 1024, &#39;Sherlock&#39;];
-
-myFavoriteThings.push(&#39;Dancing&#39;);</code>
+<code class="javascript">rainbow.push(&#39;Dancing&#39;);</code>
 </pre>
       </section><!-- Arrays and loops-->
 
@@ -106,10 +97,10 @@ myFavoriteThings.push(&#39;Dancing&#39;);</code>
 
         <p><code>for-</code>Schleife durchläuft Array.</p>
         <pre>
-<code class="javascript">var rainbowColors = [&#39;Red&#39;, &#39;Orange&#39;, &#39;Yellow&#39;, &#39;Green&#39;,&#39;Blue&#39;];
+<code class="javascript">var rainbow = [&#39;Red&#39;, &#39;Orange&#39;, &#39;Yellow&#39;, &#39;Green&#39;,&#39;Blue&#39;];
   
-for (var i = 0; i &lt; rainbowColors.length; i++) {
-  console.log(rainbowColors[i]);
+for (var i = 0; i &lt; rainbow.length; i++) {
+  console.log(rainbow[i]);
 }</code>
 </pre>
 
@@ -123,7 +114,7 @@ for (var i = 0; i &lt; rainbowColors.length; i++) {
 
         <p>Beispiel oben als foreach:</p>
         <pre>
-<code class="javascript">rainbowColors.forEach(function(arrayElement) {
+<code class="javascript">rainbow.forEach(function(arrayElement) {
   console.log(arrayElement);
 });</code>
 </pre>
@@ -140,24 +131,15 @@ for (var i = 0; i &lt; rainbowColors.length; i++) {
 
       <section>
         <h3>Array Funktionen</h3>
-
         <ul>
           <li>push (Element anhängen) a b c&lt;- d</li>
-
           <li>pop (Element abhängen) a b c-&gt; d</li>
-
           <li>unshift (Element vorne anhängen) a-&gt;b c d</li>
-
           <li>shift (Element vorne abhängen) a&lt;- b c d</li>
-
           <li>reverse (Umkehren) d c b a</li>
-
           <li>sort (Array sortieren) a b c d</li>
-
           <li>concat (zwei Arrays zusammenfügen)</li>
-
           <li>slice (Teile ermitteln)</li>
-
           <li>splice (Elemente entfernen , einfügen)</li>
         </ul>
       </section><!-- Objects -->
@@ -165,12 +147,11 @@ for (var i = 0; i &lt; rainbowColors.length; i++) {
       <section>
         <h3>Objekte</h3>
 
-        <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects">Objekte</a> lassen uns eine
-        Menge von Eigenschaften speichern.</p>
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects">Objekte</a> lassen uns eine Menge von Eigenschaften speichern. (Objekttyp ist vordefiniert: 'Object')</p>
         <pre>
-<code class="javascript">var objectName = {
-  propertyName: propertyValue,
-  propertyName: propertyValue
+<code class="javascript">var objektName = {
+   eigenschaftsName:  eigenschaftsValue,
+   eigenschaftsName:  eigenschaftsValue
 };
 </code>
 </pre>
@@ -208,16 +189,16 @@ var usersHometown = user.hometown;</code>
       </section>
 
       <section>
-        <h3>Objecte verändern</h3>
+        <h3>Objekte verändern</h3>
 
         <p>Mit beiden Notationen kann man die Eigenschaften eines Objekts verändern.</p>
         <pre>
 <code class="javascript">var user = {
   hometown: &#39;Atlanta, GA&#39;,
-  hair: &#39;Auburn&#39;
+  hair: &#39;braun&#39;
 };
 
-user.hair = &#39;blue&#39;;</code>
+user.hair = &#39;blond&#39;;</code>
 </pre>
 
         <p>Neue Eigenschaften hinzufügen</p>
@@ -231,69 +212,7 @@ user.hair = &#39;blue&#39;;</code>
 <code class="javascript">delete user.married;</code>
 </pre>
       </section>
-
-      <section>
-        <h3>Arrays von Objekten</h3>
-
-        <p>Weil Arrays verschiedene Datentypen enthalten können, können diese auch Objekte enthalten.</p>
-        <pre>
-<code class="javascript">var users = [
-  {name: &#39;Jolene&#39;, age: 21},
-  {name: &#39;Alexa&#39;,  age: 18}
-];
-
-for (var i = 0; i &lt; users.length; i++) {
-  var user = users[i];
-  console.log(user.name + &#39; is &#39; + user.age + &#39; years old.&#39;);
-}</code>
-</pre>
-      </section>
-
-      <section>
-        <h3>Objekte</h3>
-
-        <p>Objekte können auch als Argumente von Funktionen übergeben werden.</p>
-        <pre>
-<code class="javascript">var jolene = {
-  age: 21,
-  hairColor: &#39;Auburn&#39;,
-  likes: [&#39;pizza&#39;, &#39;tacos&#39;],
-  birthday: {month: 3, day: 14, year: 1995}
-}
-
-function describeUser(user) {
-  console.log(&#39;You are &#39; + user.age + &#39; years old with &#39;
-  + user.hairColor + &#39; hair.&#39;);
-}
-
-describeUser(jolene);</code>
-</pre>
-      </section>
-
-      <section>
-        <h3>Aufgabe</h3>
-
-        <p>Erzeuge ein Objekt, welches Informationen zu deinen Liebingsgerichten speichert.</p>
-
-        <p>Es sollte folgende Eigenschaften enthalten:</p>
-
-        <ul>
-          <li><code>Getraenk</code> (a string)</li>
-
-          <li><code>Gericht</code> (a string)</li>
-
-          <li><code>Obstsorten</code> (an array of strings)</li>
-
-          <li><code>Eissorte</code> (a string)</li>
-        </ul><br>
-        <br>
-
-        <p>Lassen Sie die Eigenschaften einlesen und ausgeben</p>
-
-        <p>Die Obstsorten in einer Schleife ausgeben.</p>
-      </section><!-- Objekt Methoden -->
-
-      <section>
+	  <section>
         <h3>Objekt Methoden</h3>
 
         <p>Objekte können auch Methoden enthalten.</p>
@@ -318,16 +237,99 @@ describeUser(jolene);</code>
 jolene.eat(&#39;pizza&#39;);</code>
 </pre>
       </section>
+	   
+      <section>
+        <h3>Arrays von Objekten</h3>
+
+        <p>Weil Arrays verschiedene Datentypen enthalten können, können diese auch Objekte enthalten.</p>
+        <pre>
+<code class="javascript">var users = [
+  {name: &#39;Jolene&#39;, age: 21},
+  {name: &#39;Alexa&#39;,  age: 18}
+];
+
+for (var i = 0; i &lt; users.length; i++) {
+  var user = users[i];
+  console.log(user.name + &#39; is &#39; + user.age + &#39; years old.&#39;);
+}</code>
+</pre>
+      </section>
 
       <section>
-        <h3>Aufgabe</h3>
+        <h3>Objekte</h3>
 
-        <p>Nehme nochmals das Lieblings-Objekt her. Ergänze eine Funktion <code>hunger</code>, welches ausgibt &quot;Ich habe
-        Hunger auf ...&quot; ergänzt durch das Lieblingsgericht.</p><br>
+        <p>Objekte können auch als Argumente an Funktionen übergeben werden.</p>
+        <pre>
+<code class="javascript">var jolene = {
+  age: 21,
+  hairColor: &#39;Auburn&#39;,
+  likes: [&#39;pizza&#39;, &#39;tacos&#39;],
+  birthday: {month: 3, day: 14, year: 1995}
+}
 
-        <p>Rufe die Funktion auf.</p>
-      </section><!-- Final slides-->
+function describeUser(user) {
+  console.log(&#39;You are &#39; + user.age + &#39; years old with &#39;
+  + user.hairColor + &#39; hair.&#39;);
+}
 
+describeUser(jolene);</code>
+</pre>
+      </section>
+	  <section>
+        <h3>Aufgaben</h3>
+        <p>1.Erzeugen Sie ein Objekt mit folgende Eigenschaften:</p>
+        <ul>
+          <li>Titel</li>
+          <li>Verlag</li>
+          <li>Seitenanzahl</li>
+          <li>Autor</li>
+        </ul><br/>
+        <p>2. Legen Sie jetzt ein Array von Büchern an.<br/>
+		Erst einlesen und speichern, dann in einer Schleife ausgeben.</p>
+		<p>3. Legen Sie eine Objekt Methode 'ausgeben' an.</p>
+      </section>
+	  <section>
+	  <h4>Eigene Objekttypen definieren über Konstruktor = Funktion (beginnt mit Großbuchstaben)</h4>
+<pre>
+<code class="javascript"> 
+function Ente (f, a){						
+    this.Farbe = f;							
+    this.Alter  = a;
+    this.anzeigen = function(){				
+        console.log('Ente: ' + this.farbe);
+    }										
+}     
+</code>
+</pre>
+<p>Objekt erzeugen = Instanziieren <br/> (beginnt mit Kleinbuchstaben)</p>
+<pre>
+<code class="javascript"> 
+var duck = new Ente('weiss', 4);	
+</code>
+</pre>  
+<p> Dabei zeigt <code> this </code> auf das Objekt </p>
+	  </section>
+
+      <section>
+        <h3>Aufgaben</h3>
+        <p> Lösen Sie jetzt die Aufgabe mit einem eigenen Objekttyp 'Buch' </p>
+		
+      </section><!-- Objekt Methoden -->
+
+      <section>
+        <h3>Fragen?</h3>
+		<ol>
+        <li> Was liefert die Funktion typeof ?	</li>
+		<li> Wie definiert man ein Array? Wie verändert man es? </li>
+		<li> Mit welcher Schleife durchläuft man ein Array? </li>
+		<li> Was ist ein Objekt? </li>
+		<li> Wie definiert man ein Objekt? </li>
+		<li> Was ist ein Konstruktor? </li>
+		<li> Wie erzeugt man ein Objekt mittels Konstruktur? </li>
+		<li> Wie kann man auf Eigenschaften zugreifen? </li>
+		<li> Wie kann man diese verändern oder löschen?</li>
+		</ol>
+      </section>
       <section>
         <h3>Referenzen</h3>
 

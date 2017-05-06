@@ -41,47 +41,18 @@ if( window.location.search.match( /print-pdf/gi ) ) {
       <div class="slides">
 
         <!-- Review: Role of HTML v. CSS-->
-
           <section>
-            <h3>Anatomy of a Website</h3>
-            <p><strong>Your Content</strong><br />
-            <strong>+ HTML</strong>: Structure<br />
-            <strong>+ CSS</strong>: Presentation<br />
-            <strong>= Your Website</strong></p>
-            <p>A website is a way to present your content to the world, using HTML and CSS to present that content &amp; make it look good.</p>
-          </section>
-
-          <section>
-            <h3>HTML is Markup</h3>
-            <img src="dist/img/markup.jpg" alt="Printed document covered in ink marks"/>
-            <p class="credit">Photo credit:  <a href="http://www.flickr.com/photos/nics_events/2349630241/">Nic's events</a> <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/">cc</a>
-          </section>
-
-          <section>
-            <h3>CSS is Style</h3>
-            <img src="dist/img/fingernails.jpg" alt="Fingernails with polka-dot paint job"/>
-            <p class="credit">Photo credit:  <a href="http://www.flickr.com/photos/pumpkincat210/4778025555/">pumpkincat210</a> <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/">cc</a>
-          </section>
-
-          <section>
-            <h3>IDs vs Classes</h3>
-            <p><strong>ID</strong> - Should only apply to one element on a webpage, i.e., you might have an id of <code>banner</code> on your webpage's banner.<br />
-            The <code>#</code> is how you find ids in CSS.</p><br>
-            <p><strong>Class</strong> - Lots of elements can have the same class, i.e., There can be many elements with a <code>warning</code> class on one webpage.<br />
-            The <code>.</code> is how you find classes in CSS.</p>
+            <h3>IDs vs Klassen</h3>
+            <p><strong>ID</strong> - Sollte nur ein Element der Webseite betreffen<br />
+            Mit <code>#</code> findet man IDs in CSS.</p><br>
+            <p><strong>Klasse</strong> - Viele Elemente können in einer Klasse sein.<br />
+            Mit <code>.</code> findet man Klassen in CSS.</p>
           </section>
 
         <!--The DOM-->
-          <section>
-            <h3>Nesting</h3>
-            <p>HTML elements "nest" inside one another</p>
-            <img src="dist/img/nesting-dolls.jpg" alt="Russian nesting dolls"/>
-            <p class="credit">Photo credit:  <a href="http://www.flickr.com/photos/johnkay/3539939004/">John K</a> <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/">cc</a>
-          </section>
-
-          <section>
-            <h3>The DOM Tree: Sample Code</h3>
-            <p>Oftentimes, people think of HTML as something flat -- a bunch of text with tags in the middle. </p>
+          <section>   
+            <h3>Der DOM Tree: Beispiel</h3>
+            <p> Baumstruktur durch Schachtelung der HTML-Elemente </p>
 <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
@@ -102,53 +73,48 @@ if( window.location.search.match( /print-pdf/gi ) ) {
           </section>
 
           <section>
-            <h3>The DOM Tree: Sample Model</h3>
-            <p>However, it is something much more than that. Any HTML document is a tree structure defined by the <strong><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">DOM (Document Object Model)</a></strong>.</p>
-            <img src="dist/img/dom-tree.png" alt="Simple DOM Tree"/>
+            <h3>Der DOM Tree: Beispiel Modell </h3>
+            <p>Jeder DOM-Tree wird durch das <strong><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">DOM (Document Object Model)</a></strong> definiert.</p>
+            <img src="images/dom-tree.png" alt="Simple DOM Tree"/>
           </section>
 
         <!--Accessing the DOM-->
           <section>
-            <h3>DOM Access</h3>
-            <p>Your browser automatically loads the content of a webpage into a <code>Document</code> object which serves as the entry point into a web page's content.</p><br>
-            <p><strong>Using the <code>document</code> you can:</strong></p>
+            <h3>DOM Zugriff</h3>
+            <p>Ihr Browser lädt die Weseite in ein<code>Document</code> Objekt, welches als Zugang zur Webseite dient.</p><br>
+            <p><strong>Durch Verwendung des  <code>document</code> kann man:</strong></p>
             <ol>
-              <li>Change the content tree any way you want.</li>
-              <li>Build an HTML document from scratch.</li>
-              <li>Access or replace any existing DOM nodes (HTML elements in the DOM).</li>
+			  <li>Den Inhalt der Webseite beliebig verändern.</li>
+			  <li>Eine HTML-Seite komplett neu erzeugen.</li>
+              <li>Auf existierende HTML-Elemente im DOM-Tree zugreifen und diese verändern.</li>
             </ol>
           </section>
 
           <section>
-            <h3>Finding Nodes</h3>
-            <img src="dist/img/search.jpg" alt="A magnifying glass"/>
-            <p class="credit">Photo credit:  <a href="https://flic.kr/p/4UokrH">Jeffery Beall</a> <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/">cc</a>
-          </section>
-
-          <section>
-            <h3>DOM Access: By Id</h3>
-            <p>You can find nodes by <code>id</code> using the method:</p>
+           
+            <h3>DOM Zugriff per Id</h3>
+            <p>Man kann die <code>id</code> verwenden um auf ein HTML-Element zuzugreifen mit folgenden Methode:</p>
 <pre><code class="javascript">document.getElementById(id);
 </code></pre>
-          <p>For example, to find:</p>
+          <p>Beispiel:</p>
 <pre><code class="html">&lt;img id="kittenPic" src="http://placekitten.com/g/200/300" alt="cat"/&gt;
 </code></pre>
-          <p>We would use:</p>
+          <p>Wir würden folgendes tun:</p>
 <pre><code class="javascript">var imgKitten = document.getElementById('kittenPic');
 </code></pre>
           </section>
 
           <section>
-            <h3>DOM Access: By Tag Name</h3>
-            <p>You can also get HTML elements by their <code>tag</code> using this method:</p>
+            <h3>DOM Zugriff per Tag Name</h3>
+            <p>Man kann auf HTML-Elemente zugreifen über den <code>tag</code> durch folgende Methode:</p>
 <pre><code class="javascript">document.getElementsByTagName(tagName);
 </code></pre>
-            <p>To find:</p>
+            <p>Um folgendes zu finden:</p>
 <pre><code class="html">&lt;ul&gt;
   &lt;li&gt;Daisy&lt;/li&gt;
   &lt;li&gt;Tulip&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
-            <p>We would use:</p>
+            <p>Verwenden wir:</p>
 <pre><code class="javascript">var listItems = document.getElementsByTagName('li');
 
 for (var i = 0; i &lt; listItems.length; i++) {
