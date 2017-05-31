@@ -5,7 +5,7 @@
   <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39">
   <meta charset="utf-8">
 
-  <title>Kapitel 4 - Techniker Javascript Einführung</title>
+  <title>Kapitel 4 - DOM in Javascript</title>
   <meta name="description" content="Kapitel 4 - Techniker Javascript Einführung">
   <meta name="author" content="yfitz">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -81,13 +81,14 @@ if( window.location.search.match( /print-pdf/gi ) ) {
         <!--Accessing the DOM-->
           <section>
             <h3>DOM Zugriff</h3>
-            <p>Ihr Browser lädt die Weseite in ein<code>Document</code> Objekt, welches als Zugang zur Webseite dient.</p><br>
-            <p><strong>Durch Verwendung des  <code>document</code> kann man:</strong></p>
-            <ol>
-			  <li>Den Inhalt der Webseite beliebig verändern.</li>
-			  <li>Eine HTML-Seite komplett neu erzeugen.</li>
-              <li>Auf existierende HTML-Elemente im DOM-Tree zugreifen und diese verändern.</li>
-            </ol>
+            <p>Ihr Browser lädt die Weseite in ein <code>document</code> Objekt,
+			welches als Zugang zur Webseite dient.</p><br/>
+			   <p>Durch Verwendung des <code>document</code> kann man:</p>
+				<ul>
+				<li>Den Inhalt der Webseite beliebig verändern.</li>
+				<li>Eine HTML-Seite komplett neu erzeugen.</li>
+				<li>Auf existierende HTML-Elemente im DOM-Tree zugreifen und diese verändern.</li>
+				</ul>
           </section>
 
           <section>
@@ -124,91 +125,86 @@ for (var i = 0; i &lt; listItems.length; i++) {
           </section>
 
           <section>
-            <h3>DOM Access: HTML 5</h3>
-            <p>In newer browsers, you can use methods <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName">getElementsByClassName</a></code>, <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector">querySelector</a></code>, and <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll">querySelectorAll</a></code>.</p><br>
+            <h3>DOM Zugriff: HTML 5</h3>
+            <p>In neueren Browsern kann man auch folgende Methoden verwenden: <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName">getElementsByClassName</a></code>, <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector">querySelector</a></code>, and <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll">querySelectorAll</a></code>.</p><br>
             <p>Available in <a href="http://caniuse.com/#search=getElementsByClassName">IE9+, FF3.6+, Chrome 17+, Safari 5+</a>:</p>
 <pre><code class="javascript">document.getElementsByClassName(className);
-</code></pre><br>
+</code></pre>
           <p>Available in <a href="http://caniuse.com/#search=querySelectorAll">IE8+, FF3.6+, Chrome 17+, Safari 5+</a>:</p>
 <pre><code class="javascript">document.querySelector(cssQuery);
 document.querySelectorAll(cssQuery);
 </code></pre>
+			<p> Dabei ist 'cssQuery' ein CSS-Selektor.</p>
           </section>
 
           <section>
             <h3>getElement vs. getElements</h3>
-            <p>Any method that starts with <code>getElement</code> will return a <strong>single</strong> node.</p>
-<pre><code class="javascript">document.getElementById('uniqueID'); // returns a single node
+            <p>Jede Methode die mit <code>getElement</code> beginnt, wird ein <strong>einziges</strong> Element liefern.</p>
+<pre><code class="javascript">document.getElementById('uniqueID'); 
 </code></pre><br>
-          <p>Any method that starts with <code>getElements</code> will return an <strong>array</strong> of nodes. To modify a single node, you will need to use bracket notation to get the correct one.</p>
-<pre><code class="javascript">document.getElementsByTagName('p'); // returns multiple nodes
+          <p>Jede Methode die mit <code>getElements</code> beginnt, wird ein <strong>array</strong> von Elementen liefern. Um ein Element zu bekommen muss man Klammern [] verwenden.</p>
+<pre><code class="javascript">document.getElementsByTagName('p'); 
 
 var specificParagraph = document.getElementsByTagName('p')[2];
 </code></pre>
           </section>
 
         <!--Manipulating the DOM-->
-          <section>
-            <h3>Changing Nodes</h3>
-            <img src="dist/img/two-color.jpg" alt="Red and yellow tulip"/>
-            <p class="credit">Photo credit:  <a href="https://flic.kr/p/bCYp2S">Darryl Kenyon</a> <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/">cc</a>
-          </section>
 
           <section>
-            <h3>DOM Nodes: Attributes</h3>
-            <p>You can access and change attributes of DOM nodes using dot notation.</p><br>
-            <p>To change this element:</p>
+            <h3>DOM Elemente: Attribute</h3>
+            <p>Man kann auf DOM-Elemente zugreifen und diese verändern unter Verwendung der Punkt-Notation.</p>
+            <p>Um folgendes Element zu ändern:</p>
 <pre><code class="html">&lt;img id="kittenPic" src="http://placekitten.com/g/200/300" alt="cat"/&gt;
 </code></pre>
-            <p>We could change the src attribute this way:</p>
+            <p>.. werden wir das 'src' Attribut wie folgt verändern:</p>
 <pre><code class="javascript">var imgKitten = document.getElementById('kittenPic');
 
-// will return src attribute on image
+// liefert den Wert des Attributes
 imgKitten.src
 
-// will set our src to a new src
+// setzt das Attribut
 imgKitten.src = 'http://placekitten.com/g/600/500';</code></pre>
           </section>
 
           <section>
-            <h3>DOM Nodes: Getting and Setting Attributes</h3>
-            <p>You can also use <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute">getAttribute</a></code> or <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute">setAttribute</a></code></p>
+            <h3>DOM Elemente: Zugriff und Verändern von Attributen</h3>
+            <p>Man kann  <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute">getAttribute</a></code> oder <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute">setAttribute</a></code> verwenden.</p>
 <pre><code class="html">&lt;img id="kittenPic" src="http://placekitten.com/g/200/300" alt="cat"/&gt;
 </code></pre>
-          <p>We could change the src attribute this way:</p>
+          <p>Attribute verändern wie folgt:</p>
 <pre><code class="javascript">var imgKitten = document.getElementById('kittenPic');
 
-// will return src attribute on image
+// liefert Attributwert
 imgKitten.getAttribute('src');
 
-// will set our src to a new src
+// setzt Attributswert
 imgKitten.setAttribute('src', 'http://placekitten.com/g/600/500');</code></pre>
           </section>
 
           <section>
-            <h3>DOM Nodes: Styles</h3>
-            <p>You can change page css using <code>style</code></p><br>
-            <p>To make this CSS:</p>
+            <h3>DOM Elemente: Styles</h3>
+            <p>Um folgendes CSS zu erzeugen ..</p>
 <pre><code class="css">body {
   color: red;
 }
 </code></pre>
-          <p>Use this JavaScript:</p>
+          <p> .. führt man in JavaScript folgendes aus:</p>
 <pre><code class="javascript">var pageBody = document.getElementsByTagName('body')[0];
 
 pageBody.style.color = 'red';</code></pre>
           </section>
 
           <section>
-            <h3>DOM Nodes: More Styles</h3>
-            <p>The rule of thumb in JavaScript is to change CSS styles with a "<code>-</code>" to <a href="https://en.wikipedia.org/wiki/CamelCase">camelCase</a>.</p><br>
-            <p>To make this CSS:</p>
+            <h3>Weitere Style Beispiele...</h3>
+            <p> Die Daumenregel in Javascript ist den CSS style "<code>-</code>" in  <a href="https://en.wikipedia.org/wiki/CamelCase">camelCase</a> umzuwandeln.</p><br>
+            <p>Um folgendes CSS umzusetzen..</p>
 <pre><code class="css">body {
   background-color: pink;
   padding-top: 10px;
 }
 </code></pre>
-          <p>Use this JavaScript:</p>
+          <p>.. verwende in JavaScript folgendes</p>
 <pre><code class="javascript">var pageBody = document.getElementsByTagName('body')[0]
 
 pageBody.style.backgroundColor = 'pink';
@@ -219,7 +215,7 @@ pageBody.style.paddingTop = '10px';
 
           <section>
           <h3>Let's Develop It</h3>
-          <p>Create a simple HTML page or <a href="dist/files/class4.zip">use this sample code</a>.</p>
+          <p>Create a simple HTML page or <a href="class4.zip">use this sample code</a>.</p>
           <p>Isolate a node (an element on the page) and change an attribute or add a new style.</p>
           </section>
 

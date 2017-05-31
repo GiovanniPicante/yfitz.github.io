@@ -40,7 +40,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
   <div class="reveal">
     <div class="slides">
       <section>
-          <h2>Einführung in JavaScript</h2><img src="images/javascript.png" alt="Javascript Logo" class="noborder" style=
+          <h2>Arrays und Objekte in JavaScript</h2><img src="images/javascript.png" alt="Javascript Logo" class="noborder" style=
           "max-height:400px;">
 
           <h3>Kapitel 3</h3>
@@ -141,7 +141,8 @@ for (var i = 0; i &lt; rainbow.length; i++) {
           <li>concat (zwei Arrays zusammenfügen)</li>
           <li>slice (Teile ermitteln)</li>
           <li>splice (Elemente entfernen , einfügen)</li>
-        </ul>
+        </ul><br><br>
+		<p><a href="https://www.w3schools.com/js/js_array_methods.asp">Arraymethoden </a>zum ausprobieren</p>
       </section><!-- Objects -->
 
       <section>
@@ -276,6 +277,7 @@ describeUser(jolene);</code>
 </pre>
       </section>
 	  <section>
+	  <section>
         <h3>Aufgaben</h3>
         <p>1.Erzeugen Sie ein Objekt mit folgende Eigenschaften:</p>
         <ul>
@@ -288,6 +290,36 @@ describeUser(jolene);</code>
 		Erst einlesen und speichern, dann in einer Schleife ausgeben.</p>
 		<p>3. Legen Sie eine Objekt Methode 'ausgeben' an.</p>
       </section>
+	  <section>
+	<h3>Lösung</h3>
+        <pre>
+<code class="javascript">var buch_array = [];
+var eingabe;
+var eingaben_array = [];
+for (var i = 0; i < 3; i++) {
+    eingabe = prompt("Titel,Verlag,Seitenanzahl,Autor eingeben");
+    eingaben_array = eingabe.split(",");
+    buch_array.push({
+        Titel: eingaben_array[0],
+        Verlag: eingaben_array[1],
+        Seitenanzahl: parseInt(eingaben_array[2]),
+        Autor: eingaben_array[3]
+    });
+    buch_array[i].ausgeben = function() {
+      document.write("Titel: " + this.Titel +
+      "Verlag: " + this.Verlag +
+      "Seitenanzahl: " + this.Seitenanzahl +
+      "Autor: " + this.Autor );
+    }
+}
+for (var i = 0; i < 3; i++) {
+    buch_array[i].ausgeben();
+}
+</code>
+</pre>
+	  </section>
+	  </section>
+	  
 	  <section>
 	  <h4>Eigene Objekttypen definieren über Konstruktor = Funktion (beginnt mit Großbuchstaben)</h4>
 <pre>
@@ -307,7 +339,7 @@ function Ente (f, a){
 var duck = new Ente('weiss', 4);	
 </code>
 </pre>  
-<p> Dabei zeigt <code> this </code> auf das Objekt </p>
+<p> Dabei zeigt <strong> this </strong> auf das Objekt </p>
 	  </section>
 
       <section>
@@ -330,27 +362,17 @@ var duck = new Ente('weiss', 4);
 		<li> Wie kann man auf Eigenschaften zugreifen? </li>
 		<li> Wie kann man diese verändern oder löschen?</li>
 		</ol>
+<a href="https://www.learn-js.org/en/Objects" target="_blank">Wiederholung in einer kleinen Übung</a>
       </section>
       <section>
         <h3>Referenzen</h3>
 
         <ul>
-          <li>
-            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" target="_blank">JavaScript Guide</a>, from the
-            Mozilla Developers Network.
+		  <li>
+            <a href="https://www.w3schools.com/js/js_arrays.asp" target="_blank">Javascript Arrays</a>
           </li>
-
           <li>
-            <a href="http://www.codecademy.com/tracks/javascript" target="_blank">Code Academy</a>, mit interactiven Javascript
-            Beispiele.
-          </li>
-
-          <li>
-            <a href="http://jsforcats.com/">JavaScript For Cats,</a> Basics für cats.
-          </li>
-
-          <li>
-            <a href="%20https://www.w3schools.com/js/">W3Schools JavaScript,</a> Basics und TryIt Beispiele.
+            <a href="https://www.w3schools.com/js/js_objects.asp" target="_blank">JavaScript Objects</a>
           </li>
         </ul>
       </section>
