@@ -214,37 +214,37 @@ pageBody.style.paddingTop = '10px';
           </section>
 
           <section>
-          <h3>Let's Develop It</h3>
-          <p>Create a simple HTML page or <a href="class4.zip">use this sample code</a>.</p>
-          <p>Isolate a node (an element on the page) and change an attribute or add a new style.</p>
+          <h3>Aufgabe - los geht's!</h3>
+          <p>Erzeuge eine einfache HTML Seite oder <a href="class4.zip"> verwende diesen Code.</a>.</p>
+          <p>Isoliere ein Element der Seite und verändere Attribute und ergänze einen neuen Style.</p>
           </section>
 
         <!--Manipulating the DOM-->
           <section>
             <h3>DOM innerHTML</h3>
-            <p>Each DOM node has an <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML">innerHTML</a></code> property with the HTML and content of its children. You can use the property to view or change the HTML of a node.</p><br>
-            <p>For example, you can overwrite the entire body:</p>
+            <p>Jedes DOM Element hat eine <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML">innerHTML</a></code> Eigenschaft mit dem HTML und Inhalt dessen Kindelemente. Man kann diese Eigenschaft verwenden für den Zugriff oder die Manipulation des HTML Elements.</p>
+            <p>Zum Beispiel, kann man den kompletten body überschreiben:</p>
   <pre><code class="javascript">var pageBody = document.getElementsByTagName('body')[0];
 
-pageBody.innerHTML = '&lt;h1&gt;Oh Noes!&lt;/h1&gt;&lt;p&gt;I changed the whole page!&lt;/p&gt;'</code></pre><br>
-            <p>Or just add some new content to the end</p>
+pageBody.innerHTML = '&lt;h1&gt;Oh Noes!&lt;/h1&gt;&lt;p&gt;I changed the whole page!&lt;/p&gt;'</code></pre>
+            <p>Oder einfach Inhalt anhängen:</p>
   <pre><code class="javascript">pageBody.innerHTML += '...just adding this at the end of the page.';</code></pre>
           </section>
 
           <section>
-            <h3>DOM innerHTML continued</h3>
-            <p>You can also target one specific element's content</p><br>
-            <p>To put content in this paragraph element:</p>
+            <h3>DOM innerHTML </h3>
+            <p>Man kann auch den Inhalt eines speziellen Element ansprechen </p><br>
+            <p>Um Inhalt in den Paragraph zu stecken:</p>
   <pre><code class="html">&lt;p id="warning"&gt;&lt;/p&gt;</code></pre>
-            <p>We can select the node and modify it</p>
+            <p>Ansprechen des Elements und modifizieren:</p>
   <pre><code class="javascript">var warningParagraph = document.getElementById('warning');
 
 warningParagraph.innerHTML = 'Danger Will Robinson!';</code></pre>
           </section>
 
           <section>
-            <h3>Creating New Nodes</h3>
-            <p>The <code>document</code> object also has methods to create nodes from scratch:</p>
+            <h3>Erzeugung neuer HTML Elemente</h3>
+            <p>Das <code>document</code> Objekt hat ausserdem noch Methoden um neue Elemente zu erzeugen:</p>
   <pre><code class="javascript">document.createElement(tagName);
 
 document.createTextNode(text);
@@ -253,83 +253,80 @@ element.appendChild(element);</code></pre>
           </section>
 
           <section>
-            <h3>Creating New Nodes: Sample Code</h3>
-<pre><code class="javascript">var pageBody = document.getElementsByTagName('body')[0];
+            <h3>Neue Elemente erzeugen: Beispiel Code</h3>
+<pre><code class="javascript">var <strong>pageBody</strong> = document.getElementsByTagName('body')[0];
 
 // create our image tag with attributes
-var newImg = document.createElement('img');
-newImg.src = 'http://placekitten.com/g/500/200';
-newImg.style.border = '1px solid black';
+var <strong>newImg</strong> = document.createElement('img');
+<strong>newImg</strong>.src = 'http://placekitten.com/g/500/200';
+<strong>newImg</strong>.style.border = '1px solid black';
 
 // add our image to the body
-pageBody.appendChild(newImg);
+<strong>pageBody</strong>.appendChild(<strong>newImg</strong>);
 
 // create a paragraph tag with content
-var newParagraph  = document.createElement('p');
-var paragraphText = document.createTextNode('Squee!');
-newParagraph.appendChild(paragraphText);
+var <strong>newParagraph</strong>  = document.createElement('p');
+var <strong>paragraphText</strong> = document.createTextNode('Squee!');
+<strong>newParagraph</strong>.appendChild(<strong>paragraphText</strong>);
 
 // add our new paragraph to the body
-pageBody.appendChild(newParagraph);</code></pre>
+<strong>pageBody</strong>.appendChild(<strong>newParagraph</strong>);</code></pre>
             </section>
 
             <section>
-            <h3>Let's Develop It</h3>
-            <p>Create a new paragraph element and add it to a <code>div</code> on your page.</p>
+            <h3>Auf geht's</h3>
+            <p>Erzeuge neuen Paragraph und hänge es an ein <code> div </code> in der HTML Seite aus der vorherigen Übung.</p>
           </section>
 
       <!-- Events -->
         <section>
           <h3>Events</h3>
-          <img src="dist/img/magician.jpg" alt="Lego Magician" class="noborder"/>
-          <p class="credit">Photo credit: <a href="https://flic.kr/p/9hBrtv" target="_blank">Eva Peris</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></p>
+          <img src="images/magician.jpg" alt="Lego Magician" class="noborder"/>
+          <p class="credit">Photo: <a href="https://flic.kr/p/9hBrtv" target="_blank">Magician</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></p>
         </section>
 
         <section>
           <h3>Events</h3>
-          <p>An <strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events">event</a></strong> is an object that is sent when actions take place on your webpage, most often when a user interacts with your webpage.</p><br>
-          <p>For example, JavaScript creates an event when a user clicks an element.</p>
+          <p>Ein <strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events">Event</a></strong> ist ein Objekt, welches verschickt wird, wenn Aktionen auf der Webseite passieren - User Interaktionen. </p><br>
+          <p>Beispielweise, JavaScript erzeugt einen Event, wenn ein User auf ein Element klickt.</p>
 <pre><code class="javascript">element.addEventListener('click', function(event) {
-  // code to be executed when user clicks
+  // Programmteil, der beim Klick ausgeführt wird.
 });
 </code></pre>
         </section>
 
         <section>
-          <h3>Types of Events</h3>
-          <p>There are a <a href="https://developer.mozilla.org/en-US/docs/Web/Events">variety of events</a>. Some of the more common events are:</p>
+          <h3>Eventtypen</h3>
+          <p>Es gibt viele <a href="https://developer.mozilla.org/en-US/docs/Web/Events">verschiedene Events</a>. Die gängigsten Events sind die folgenden:</p>
           <ul>
-            <li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events/click">click</a>:</strong> Occurs when the user clicks on an element</li>
-            <li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events/mouseover">mouseover</a>:</strong> Occurs when the pointer is moved onto an element</li>
-            <li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events/mouseout">mouseout</a>:</strong> Occurs when the pointer is moved off an element</li>
-            <li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events/keyup">keyup</a>:</strong> Occurs when the user releases a key</li>
-            <li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events/load_(ProgressEvent)">load</a>:</strong> Occurs when a document has been loaded</li>
-            <li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events/focus">focus</a>:</strong> Occurs when an element gets focus</li>
-            <li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events/blur">blur</a>:</strong> Occurs when an element loses focus</li>
+            <li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events/click">click</a>:</strong> Tritt ein wenn der User auf das Element klickt.</li>
+            <li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events/mouseover">mouseover</a>:</strong> Tritt ein wenn Zeiger auf dieses Element bewegt wird.</li>
+            <li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events/mouseout">mouseout</a>:</strong> Tritt ein wenn Zeiger von diesem Element weg bewegt wird.</li>
+            <li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events/keyup">keyup</a>:</strong> Tritt ein wenn eine Taste losgelassen wird.</li>
+            <li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events/load_(ProgressEvent)">load</a>:</strong> Tritt ein wenn document geladen wird.</li>
+            <li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events/focus">focus</a>:</strong> Tritt ein wenn ein Element den Fokus bekommt.</li>
+            <li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Events/blur">blur</a>:</strong> Tritt ein wenn ein Element den Fokus verliert.</li>
           </ul>
         </section>
 
         <section>
-          <h3>Calling Functions from HTML</h3>
-          <p>You can call a function directly from your HTML code:</p>
+          <p>Functionsaufruf direkt in HTML</p>
 <pre><code class="html">&lt;button id="myBtn" onclick="sayHi()"&gt;Click Me!&lt;/button&gt;
 </code></pre>
 <pre><code class="javascript">function sayHi (event) {
   alert('Hi!');
 };</code></pre>
-        </section>
-
-          <section>
-          <h3>Calling Functions from JavaScript</h3>
-          <p>You can call a function from the addEventListener:</p>
+</section>
+<section>
+          <p>Functionaufruf in JavaScript mit addEventListener</p>
 <pre><code class="html">&lt;button id="myBtn"&gt;Click Me!&lt;/button&gt;
 </code></pre>
 <pre><code class="javascript">var button = document.getElementById("myBtn");
 
-button.addEventListener("click", function (event) {
+button.<strong>addEventListener</strong>("click", function (event) {
   alert("Hi!");
 });</code></pre>
-<p>or</p>
+<p>oder</p>
 <pre><code class="javascript">var button = document.getElementById("myBtn");
 
 var sayHi = function (event) {
@@ -341,24 +338,19 @@ button.addEventListener("click", sayHi);</code></pre>
 
 
         <section>
-          <h3>Let's Develop It</h3>
-          <p>Go back to the sample files you downloaded earlier.</p>
-          <p>Make some JavaScript code fire after a <code>mouseover</code> event.</p>
+          <h3>Aufgabe</h3>
+          <p>Kleine Javascript Übung<a href="class4.zip"> unter Verwendung eines Beispielcodes</a>.</p>
+          <p>Lasse JavaScript Code auslösen nach <code>mouseover</code> Event.</p>
         </section>
 
       <!-- More Events -->
         <section>
-          <h3>Preventing Defaults</h3>
-          <img src="dist/img/donotwant.jpg" alt="A cat resisting a bath"/>
-        </section>
-
-        <section>
-          <h3>Preventing Defaults</h3>
-          <p>Elements like links and checkboxes have default behaviors determined by the browser. However, the <code>event</code> object has a built-in method to <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault">prevent the default behavior</a></p>
-          <p>Our anchor link in HTML</p>
+          <h3>Verhinderung von Defaults</h3>
+          <p>Elemente wie z.B links und checkboxes haben ein Default Verhalten, welches durch den Browser vorgegeben ist. Zusätzlich hat das  <code>Event</code> Objekt eine Methode um <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault">dieses Default Verhalten zu verhindern.</a></p>
+          <p>Unser anchor link in HTML</p>
 <pre><code class="html">&lt;a id="myLink" href="https://www.girldevelopit.com"&gt;GDI&lt;/a&gt;
 </code></pre>
-<p>Code to prevent going to link's href on click</p>
+<p>Programmcode verhindert, dass der href beim Anklicken ausgeführt wird.</p>
 <pre><code class="javascript">var link = document.getElementById("myLink");
 
 link.addEventListener("click", function(event) {
@@ -369,16 +361,9 @@ link.addEventListener("click", function(event) {
 
         <section>
           <h3>currentTarget</h3>
-          <img src="dist/img/arrow.jpg" alt="Lighted arrow sign pointed downward"/>
-          <p class="credit">Photo credit: <a href="https://flic.kr/p/6ei68A" target="_blank">Alan Berning</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></p>
-        </section>
-
-        <section>
-          <h3>currentTarget</h3>
-          <p>The event's <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/currentTarget">currentTarget</a></code> references the element the event listener was attached to.</p>
-          <p>Our button in HTML:</p>
+          <p><code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/currentTarget">currentTarget</a></code> von dem Element referenziert das Element des Eventlistener.</p>
           <pre><code class="html">&lt;button id="myBtn"&gt;Click Me!&lt;/a&gt;</code></pre>
-          <p>This code adds styles and text to our clicked button</p>
+          <p>Dieser Programmcode ergänzt Style und Text an den angeklickten Button.</p>
 <pre><code class="javascript">myButton = document.getElementById("myBtn");
 
 myButton.addEventListener("click", function(event) {
@@ -387,27 +372,22 @@ myButton.addEventListener("click", function(event) {
   btn.style.backgroundColor = 'red';
   btn.innerHTML = 'Clicked!';
 };</code></pre>
-<p>You may also see code that references the keyword <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">this</a></code> as the "target".
+<p>Man kann auch Programmcode unter Verwendung der Referenz auf das Schlüsselwort <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">this</a></code> als "target".
         </section>
 
         <section>
-          <h3>Let's Develop It</h3>
-          <p>Write code that targets this link:</p>
-<pre><code class="html">&lt;a href="http://girldevelopit.com/" id="gdiLink"&gt;Girl Develop It&lt;/a&gt;
+          <h3>Aufgabe  los geht's!</h3>
+          <p>Schreibe ein Programmcode der target und diesen Link verwendet: </p>
+<pre><code class="html">&lt;a href="https://www.w3schools.com/Jsref/event_target.asp" id="myLink"&gt;Target in w3schools&lt;/a&gt;
 </code></pre>
-          <p>When a user clicks the link, the page should display an error message instead of going to the Girl Develop It homepage.</p>
+          <p>Wenn der User auf den Link klickt, soll eine Fehlermeldung angezeigt werden anstatt der Webseite w3schools.</p>
         </section>
-
       <!-- User input -->
-        <section>
-          <h3>User Input</h3>
-          <img src="dist/img/comment-box.jpg" alt="Comment box"/>
-          <p class="credit">Photo credit: <a href="https://flic.kr/p/fnZ4RT" target="_blank">Rym DeCoster</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></p>
-        </section>
 
         <section>
+          
           <h3>Forms</h3>
-          <p>You can collect information from users to use in your code. The most common method is an HTML form</p>
+          <p>Man kann Information sammeln um diesen zu verwenden - z.B. in einer HTML form</p>
 <pre><code class="html">&lt;form id="userForm"&gt;
   &lt;label for="name"&gt;First Name:&lt;/label&gt;
   &lt;input type="text" id="firstName"/&gt;
@@ -419,17 +399,17 @@ myButton.addEventListener("click", function(event) {
         </section>
 
         <section>
-          <h3>Retrieving Form Data</h3>
-          <p>You retrieve the values of form elements using the <code>value</code> method.</p>
+          <h3>Form Daten ermitteln</h3>
+          <p>Form Daten ermitteln mit der <code>value</code> Methode.</p>
 <pre><code class="javascript">var name = document.getElementById('firstName').value;
 console.log(name);
 </code></pre>
-          <p>You can retrieve the value of a form at any time. Even when an event like <code>blur</code> is triggered (when a form element loses focus).</p>
+          <p>Der Wert einer Form kann jederzeit ermittelt werden. Sogar wenn ein Event wie z.B. <code>blur</code> eintritt. <br> (das Form Element verliert den Fokus).</p>
         </section>
 
         <section>
           <h3>Radio Buttons</h3>
-          <p>Radio buttons usually do not have IDs, so you will need to use a <code>for</code> loop to get the value on each radio:</p>
+          <p>Radio buttons haben normalerweise keine IDs, so dass man eine <code>for</code> loop verwenden muss um die Werte zu ermitteln von jedem radio:</p>
 <pre><code class="javascript">var radios = document.getElementsByName('married');
 
 var length = radios.length;
@@ -446,7 +426,7 @@ for (var i = 0; i &lt; length; i++) {
 
         <section>
           <h3>Submit buttons</h3>
-          <p>If you are going to retrieve form values with the submit button, be sure to prevent the default action!</p>
+          <p>Um die Werte der Form beim submit zu ermitteln, verhindere die Default Aktion!</p>
 <pre><code class="javascript">var submitButton = document.getElementById('submitBtn');
 
 submitButton.addEventListener("click", function(event) {
@@ -459,19 +439,13 @@ submitButton.addEventListener("click", function(event) {
         </section>
 
         <section>
-          <h3>Let's Develop It</h3>
-          <p>Collect a value from the input box on the page. Use it inside a function of some kind. For example, collect a number and multiply it by five or collect a name and display a greeting.</p>
+          <h3>Entwickle es!</h3>
+          <p>Sammle die Werte einer Input Box einer Seite. Verwende es innerhalb einer Funktion. Zum Beispiel, sammle eine Zahl ein, multipliziere diese mit fünf oder aber sammle einen Namen ein und zeige eine Begrüßung.</p>
         </section>
 
-      <!-- Final slides-->
-        <section>
-          <h3>You did it!</h3>
-          <img src="dist/img/jumping-man.jpg" alt="Man jumping in air"/>
-          <p class="credit">Photo credit: <a href="http://www.flickr.com/photos/sunface13/988453859/" target="_blank">sunface13</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></p>
-        </section>
 
         <section>
-          <h3>Resources</h3>
+          <h3>Referenzen</h3>
           <ul>
             <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" target="_blank">JavaScript Guide</a>, from the Mozilla Developers Network.</li>
             <li><a href="http://www.codecademy.com/tracks/javascript" target="_blank">Code Academy</a>, with interactive JavaScript lessons to help you review.</li>
@@ -480,7 +454,7 @@ submitButton.addEventListener("click", function(event) {
         </section>
 
         <section>
-          <h2>Questions?</h2>
+          <h2>Fragen?</h2>
         </section>
     </div>
 <script src="js/reveal.js"></script> 
