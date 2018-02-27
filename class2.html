@@ -60,8 +60,8 @@ if( window.location.search.match( /print-pdf/gi ) ) {
                 // Abfrage der Werte 
                 pre_tip = prompt("Bitte Rechnungsbetrag eingeben");
                 tip_prozent = prompt("Bitte Prozent eingeben");
-                var billTip = pre_tip * (tipPercent/100 + 1);
-                var receipt = "Komplete Rechnungsbetrag, einschließlich <br>
+                var billTip = pre_tip * (tip_prozent/100 + 1);
+                var receipt = "Komplete Rechnungsbetrag, einschliesslich <br>
 			Trinkgeld, ist " + billTip  + "Euro";
                 console.log(receipt);
         &lt;/script&gt;
