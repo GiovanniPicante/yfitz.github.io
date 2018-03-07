@@ -63,7 +63,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
                 var billTip = pre_tip * (tip_prozent/100 + 1);
                 var receipt = "Komplete Rechnungsbetrag, einschliesslich <br>
 			Trinkgeld, ist " + billTip  + "Euro";
-                console.log(receipt);
+                document.write(receipt);
         &lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;
@@ -391,7 +391,7 @@ for (var i = 100; i &lt;= 200; i++) {
 
           <li>Verwende diese Funktion in einer HTML-Datei um solange den Radius als Eingabe abzufragen, bis die '0' eingeben wird. Zu jeder Eingabe wird die Kreisfläche ausgegeben.
 
-            <p>Ausgabe z.B: <code>Der Radius des Kreises mit Radius 2 ist "12.566370614359172."</code></p>
+            <p>Ausgabe z.B: <code>Die Fläche des Kreises mit Radius 2 ist "12.566370614359172."</code></p>
           </li>
 		  <li>
 			<p> Siehe die Funktionen des Standardobjekts  <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Math"> Math </a>
