@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="de">
+
 <head>
   <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39">
   <meta charset="utf-8">
@@ -12,9 +13,11 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="stylesheet" href="css/reveal.css">
   <link rel="stylesheet" href="css/theme/simple.css" id="theme">
-  <link rel="stylesheet" href="css/custom.css"><!-- For syntax highlighting -->
+  <link rel="stylesheet" href="css/custom.css">
+  <!-- For syntax highlighting -->
   <!-- light editor -->
-  <link rel="stylesheet" href="lib/css/light.css"><!-- dark editor -->
+  <link rel="stylesheet" href="lib/css/light.css">
+  <!-- dark editor -->
   <!--<link rel="stylesheet" href="lib/css/dark.css">
   <link rel="stylesheet" href="lib/css/zenburn.css">
   <link rel="stylesheet" href="plugin/accessibility-helper/css/accessibility-helper.css">-->
@@ -22,16 +25,18 @@
   <!-- print mit strg P -->
 
   <script>
-if( window.location.search.match( /print-pdf/gi ) ) {
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = 'css/print/pdf.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-      }
-  </script><!-- If use the PDF print sheet so students can print slides-->
+    if (window.location.search.match(/print-pdf/gi)) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'css/print/pdf.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    }
+  </script>
+  <!-- If use the PDF print sheet so students can print slides-->
   <link rel="stylesheet" href="css/print/pdf.css" type="text/css" media="print">
-  <link rel="icon" type="image/x-icon" href="favicon.ico"><!--[if lt IE 9]>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
 </head>
@@ -40,18 +45,17 @@ if( window.location.search.match( /print-pdf/gi ) ) {
   <div class="reveal">
     <div class="slides">
       <section>
-          <h2>Arrays und Objekte in JavaScript</h2><img src="images/javascript.png" alt="Javascript Logo" class="noborder" style=
-          "max-height:400px;">
+        <h2>Arrays und Objekte in JavaScript</h2><img src="images/javascript.png" alt="Javascript Logo" class="noborder" style="max-height:400px;">
 
-          <h3>Kapitel 3</h3>
-        
-      </section><!-- Arrays -->
-	  
+        <h3>Kapitel 3</h3>
+
+      </section>
+      <!-- Arrays -->
+
       <section>
-        <h3>Arrays</h3>
+        <p style="text-decoration:underline;">Arrays</p>
 
-        <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> ist eine
-        Liste von Elementen.</p>
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> ist eine Liste von Elementen.</p>
         <pre>
 <code class="javascript">var arrayName = [value0, value1];</code>
 </pre><br>
@@ -67,10 +71,9 @@ var myFavoriteThings = [&#39;Broccoli&#39;, 1024, &#39;Sherlock&#39;];</code>
       </section>
 
       <section>
-        <h3>Länge und Elemente</h3>
-        <p>Die Methode <code><a href=
-        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length">length</a></code> zählt
-        die Elemente.</p>
+        <p style="text-decoration: underline;">Länge und Elemente</p>
+        <p>Die Eigenschaft <code><a href=
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length">length</a></code> zählt die Elemente.</p>
         <pre>
 <code class="javascript">
 var rainbow = [&#39;Red&#39;, &#39;Orange&#39;, &#39;Yellow&#39;, &#39;Green&#39;,&#39;Blue&#39;];
@@ -86,33 +89,35 @@ var lastColor  = rainbow[4];</code>
         <pre>
 <code class="javascript">rainbow[3] = &quot;White&quot;;</code>
 </pre>
-        <p>Verlängern von Arrays (Arrays haben keine feste Länge.)<p>
-        <pre>
+        <p>Verlängern von Arrays (Arrays haben keine feste Länge.)
+          <p>
+            <pre>
 <code class="javascript">rainbow.push(&#39;Dancing&#39;);</code>
 </pre>
-      </section><!-- Arrays and loops-->
+      </section>
+      <!-- Arrays and loops-->
 
       <section>
-        <h3>Schleifen durch Arrays</h3>
+        <p style="text-decoration: underline;">Schleifen durch Arrays</p>
 
-        <p><code>for-</code>Schleife durchläuft Array.</p>
+        <p style="text-decoration: underline;text-align: left;"><code>for-</code>Schleife </p>
         <pre>
 <code class="javascript">var rainbow = [&#39;Red&#39;, &#39;Orange&#39;, &#39;Yellow&#39;, &#39;Green&#39;,&#39;Blue&#39;];
-  
+
 for (var i = 0; i &lt; rainbow.length; i++) {
   console.log(rainbow[i]);
 }</code>
 </pre>
 
-        <p>Alternativ <code>foreach-</code>Schleife</p>
+        <p style="text-decoration: underline;text-align: left;"><code>foreach-</code>Schleife</p>
         <pre>
-<code class="javascript">array.forEach(function(arrayElement) { 
-                console.log(arrayElement); 
+<code class="javascript">array.forEach(function(arrayElement) {
+                console.log(arrayElement);
 });
 </code>
 </pre>
 
-        <p>Beispiel oben als foreach:</p>
+        <p style="text-decoration: underline;text-align: left;">Beispiel oben als foreach:</p>
         <pre>
 <code class="javascript">rainbow.forEach(function(arrayElement) {
   console.log(arrayElement);
@@ -121,16 +126,17 @@ for (var i = 0; i &lt; rainbow.length; i++) {
       </section>
 
       <section>
-        <h3>Übungsaufgabe</h3><br>
+        <p style="text-decoration: underline;">Übungsaufgabe</p><br>
 
-        <p>Erzeugen Sie in einer Schleife ein Zahlenarray der ersten 10 Vielfache von der Zahl 3 und lassen Sie diese anschließend
-        auf dem Bildschirm ausgeben.</p><br>
+        <p style=" text-align: left;">Erzeugen Sie in einer Schleife ein Zahlenarray der ersten 10 Vielfache von der Zahl 3 und lassen Sie diese anschließend auf dem Bildschirm ausgeben. </p><br>
 
-        <p>Verwenden Sie anschließend die for-Schleife um die Zahlen, die kleiner als 13 sind auszugeben.</p>
+        <p style=" text-align: left;">Verwenden Sie anschließend die for-Schleife um die Zahlen, die kleiner als 13 sind auszugeben. </p><br>
+        <p style=" text-align: left;text-decoration: underline;">Frage: </p>
+        <p style=" text-align: left;"> Wann ist eine forEach-Schleife anwendbar - wann ist eine for-Schleife besser </p>
       </section>
 
       <section>
-        <h3>Array Funktionen</h3>
+        <p style="text-decoration: underline;">Array Funktionen</p>
         <ul>
           <li>push (Element anhängen) a b c&lt;- d</li>
           <li>pop (Element abhängen) a b c-&gt; d</li>
@@ -142,10 +148,13 @@ for (var i = 0; i &lt; rainbow.length; i++) {
           <li>slice (Teile ermitteln)</li>
           <li>splice (Elemente entfernen , einfügen)</li>
         </ul><br><br>
-		<p><a href="https://www.w3schools.com/js/js_array_methods.asp">Arraymethoden </a>zum ausprobieren</p>
-      </section><!-- Objects -->
-	  <section>
-	  
+        <p><a href="https://www.w3schools.com/js/js_array_methods.asp">Arraymethoden </a>zum ausprobieren</p>
+      </section>
+      <!-- Objects -->
+      <section>
+        <p style="text-decoration: underline;"> Beispiel: sortieren mit Funktion</p>
+        <pre>
+<code class="javascript">
 var points = [40, 100, 1, 5, 25, 10];
 document.getElementById("demo").innerHTML = points;
 
@@ -156,12 +165,13 @@ function myFunction() {
         return 0;});
     document.getElementById("demo").innerHTML = points;
 }
-</script>
-</section>
+</code>
+</pre>
+      </section>
 
 
       <section>
-        <h3>Objekte</h3>
+        <p style="text-decoration:underline;">Objekte</p>
 
         <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects">Objekte</a> lassen uns eine Menge von Eigenschaften speichern. (Objekttyp ist vordefiniert: 'Object')</p>
         <pre>
@@ -182,7 +192,7 @@ function myFunction() {
       </section>
 
       <section>
-        <h3>Zugriff auf Objekte</h3>
+        <p style="text-decoration:underline;">Zugriff auf Objekte</p>
 
         <p>Mit der <strong><a href=
         "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_Accessors#Dot_notation">Punkt
@@ -205,7 +215,7 @@ var usersHometown = user.hometown;</code>
       </section>
 
       <section>
-        <h3>Objekte verändern</h3>
+        <p style="text-decoration:underline;">Objekte verändern</p>
 
         <p>Mit beiden Notationen kann man die Eigenschaften eines Objekts verändern.</p>
         <pre>
@@ -228,8 +238,8 @@ user.hair = &#39;blond&#39;;</code>
 <code class="javascript">delete user.married;</code>
 </pre>
       </section>
-	  <section>
-        <h3>Objekt Methoden</h3>
+      <section>
+        <p style="text-decoration:underline;">Objekt Methoden</p>
 
         <p>Objekte können auch Methoden enthalten.</p>
         <pre>
@@ -253,9 +263,9 @@ user.hair = &#39;blond&#39;;</code>
 jolene.eat(&#39;pizza&#39;);</code>
 </pre>
       </section>
-	   
+
       <section>
-        <h3>Arrays von Objekten</h3>
+        <p style="text-decoration:underline;">Arrays von Objekten</p>
 
         <p>Weil Arrays verschiedene Datentypen enthalten können, können diese auch Objekte enthalten.</p>
         <pre>
@@ -272,7 +282,7 @@ for (var i = 0; i &lt; users.length; i++) {
       </section>
 
       <section>
-        <h3>Objekte</h3>
+        <p style="text-decoration:underline;">Objekte</p>
 
         <p>Objekte können auch als Argumente an Funktionen übergeben werden.</p>
         <pre>
@@ -291,22 +301,21 @@ function describeUser(user) {
 describeUser(jolene);</code>
 </pre>
       </section>
-	  <section>
-	  <section>
-        <h3>Aufgaben</h3>
-        <p>1.Erzeugen Sie ein Objekt mit folgende Eigenschaften:</p>
+      <section>
+        <p style="text-decoration:underline;">Aufgaben</p>
+        <p style="text-align:left;">1.Erzeugen Sie ein Objekt mit folgende Eigenschaften:</p>
         <ul>
           <li>Titel</li>
           <li>Verlag</li>
           <li>Seitenanzahl</li>
           <li>Autor</li>
-        </ul><br/>
-        <p>2. Legen Sie jetzt ein Array von Büchern an.<br/>
-		Erst einlesen und speichern, dann in einer Schleife ausgeben.</p>
-		<p>3. Legen Sie eine Objekt Methode 'ausgeben' an.</p>
+        </ul><br/><br>
+        <p style="text-align:left;">2. Legen Sie jetzt ein Array von Büchern an.Erst einlesen und speichern,
+          dann in einer Schleife ausgeben.</p><br>
+        <p style="text-align:left;">3. Legen Sie eine Objekt Methode 'ausgeben' an.</p>
       </section>
-	  <section>
-	<h3>Lösung</h3>
+      <section>
+        <p style="text-decoration:underline;">Lösung</p>
         <pre>
 <code class="javascript">var buch_array = [];
 var eingabe;
@@ -332,59 +341,59 @@ for (var i = 0; i < 3; i++) {
 }
 </code>
 </pre>
-	  </section>
-	  </section>
-	  
-	  <section>
-	  <h4>Eigene Objekttypen definieren über Konstruktor = Funktion (beginnt mit Großbuchstaben)</h4>
-<pre>
-<code class="javascript"> 
-function Ente (f, a){						
-    this.Farbe = f;							
+      </section>
+      </section>
+
+      <section>
+        <h4>Eigene Objekttypen definieren über Konstruktor = Funktion (beginnt mit Großbuchstaben)</h4>
+        <pre>
+<code class="javascript">
+function Ente (f, a){
+    this.Farbe = f;
     this.Alter  = a;
-    this.anzeigen = function(){				
+    this.anzeigen = function(){
         console.log('Ente: ' + this.farbe);
-    }										
-}     
+    }
+}
 </code>
 </pre>
-<p>Objekt erzeugen = Instanziieren <br/> (beginnt mit Kleinbuchstaben)</p>
-<pre>
-<code class="javascript"> 
-var duck = new Ente('weiss', 4);	
+        <p>Objekt erzeugen = Instanziieren <br/> (beginnt mit Kleinbuchstaben)</p>
+        <pre>
+<code class="javascript">
+var duck = new Ente('weiss', 4);
 </code>
-</pre>  
-<p> Dabei zeigt <strong> this </strong> auf das Objekt </p>
-	  </section>
+</pre>
+        <p> Dabei zeigt <strong> this </strong> auf das Objekt </p>
+      </section>
 
       <section>
         <h3>Aufgaben</h3>
-        <p> Lösen Sie jetzt die vorherige Aufgabe mit einem eigenen Objekttyp 'Buch' und einer Methode
-			'ausgeben'. </p>
-		
-      </section><!-- Objekt Methoden -->
+        <p> Lösen Sie jetzt die vorherige Aufgabe mit einem eigenen Objekttyp 'Buch' und einer Methode 'ausgeben'. </p>
+
+      </section>
+      <!-- Objekt Methoden -->
 
       <section>
         <h3>Fragen?</h3>
-		<ol>
-        <li> Was liefert die Funktion typeof ?	</li>
-		<li> Wie definiert man ein Array? Wie verändert man es? </li>
-		<li> Mit welcher Schleife durchläuft man ein Array? </li>
-		<li> Was ist ein Objekt? </li>
-		<li> Wie definiert man ein Objekt? </li>
-		<li> Was ist ein Konstruktor? </li>
-		<li> Wie erzeugt man ein Objekt mittels Konstruktur? </li>
-		<li> Wie kann man auf Eigenschaften zugreifen? </li>
-		<li> Wie kann man diese verändern oder löschen?</li>
-		</ol>
-		<a href="JS.html" target="_blank">Anfang</a>
-<a href="https://www.learn-js.org/en/Objects" target="_blank">Wiederholung in einer kleinen Übung</a>
+        <ol>
+          <li> Was liefert die Funktion typeof ? </li>
+          <li> Wie definiert man ein Array? Wie verändert man es? </li>
+          <li> Mit welcher Schleife durchläuft man ein Array? </li>
+          <li> Was ist ein Objekt? </li>
+          <li> Wie definiert man ein Objekt? </li>
+          <li> Was ist ein Konstruktor? </li>
+          <li> Wie erzeugt man ein Objekt mittels Konstruktur? </li>
+          <li> Wie kann man auf Eigenschaften zugreifen? </li>
+          <li> Wie kann man diese verändern oder löschen?</li>
+        </ol>
+        <a href="JS.html" target="_blank">Anfang</a>
+        <a href="https://www.learn-js.org/en/Objects" target="_blank">Wiederholung in einer kleinen Übung</a>
       </section>
       <section>
         <h3>Referenzen</h3>
 
         <ul>
-		  <li>
+          <li>
             <a href="https://www.w3schools.com/js/js_arrays.asp" target="_blank">Javascript Arrays</a>
           </li>
           <li>
@@ -394,101 +403,102 @@ var duck = new Ente('weiss', 4);
       </section>
     </div>
   </div>
-<script src="js/reveal.js"></script> 
-<script>
+  <script src="js/reveal.js"></script>
+  <script>
     Reveal.initialize({
 
-        // Display controls in the bottom right corner
-        controls: true,
+      // Display controls in the bottom right corner
+      controls: true,
 
-        // Display a presentation progress bar
-        progress: true,
+      // Display a presentation progress bar
+      progress: true,
 
-        // Display the page number of the current slide
-        slideNumber: true,
+      // Display the page number of the current slide
+      slideNumber: true,
 
-        // Push each slide change to the browser history
-        history: true,
+      // Push each slide change to the browser history
+      history: true,
 
-        // Enable keyboard shortcuts for navigation
-        keyboard: true,
+      // Enable keyboard shortcuts for navigation
+      keyboard: true,
 
-        // Enable the slide overview mode
-        overview: true,
+      // Enable the slide overview mode
+      overview: true,
 
-        // Vertical centering of slides
-        center: true,
+      // Vertical centering of slides
+      center: true,
 
-        // Enables touch navigation on devices with touch input
-        touch: true,
+      // Enables touch navigation on devices with touch input
+      touch: true,
 
-        // Loop the presentation
-        loop: false,
+      // Loop the presentation
+      loop: false,
 
-        // Change the presentation direction to be RTL
-        rtl: false,
+      // Change the presentation direction to be RTL
+      rtl: false,
 
-        // Randomizes the order of slides each time the presentation loads
-        shuffle: false,
+      // Randomizes the order of slides each time the presentation loads
+      shuffle: false,
 
-        // Turns fragments on and off globally
-        fragments: true,
+      // Turns fragments on and off globally
+      fragments: true,
 
-        // Flags if the presentation is running in an embedded mode,
-        // i.e. contained within a limited portion of the screen
-        embedded: false,
+      // Flags if the presentation is running in an embedded mode,
+      // i.e. contained within a limited portion of the screen
+      embedded: false,
 
-        // Flags if we should show a help overlay when the questionmark
-        // key is pressed
-        help: true,
+      // Flags if we should show a help overlay when the questionmark
+      // key is pressed
+      help: true,
 
-        // Flags if speaker notes should be visible to all viewers
-        showNotes: false,
+      // Flags if speaker notes should be visible to all viewers
+      showNotes: false,
 
-        // Number of milliseconds between automatically proceeding to the
-        // next slide, disabled when set to 0, this value can be overwritten
-        // by using a data-autoslide attribute on your slides
-        autoSlide: 0,
+      // Number of milliseconds between automatically proceeding to the
+      // next slide, disabled when set to 0, this value can be overwritten
+      // by using a data-autoslide attribute on your slides
+      autoSlide: 0,
 
-        // Stop auto-sliding after user input
-        autoSlideStoppable: true,
+      // Stop auto-sliding after user input
+      autoSlideStoppable: true,
 
-        // Use this method for navigation when auto-sliding
-        autoSlideMethod: Reveal.navigateNext,
+      // Use this method for navigation when auto-sliding
+      autoSlideMethod: Reveal.navigateNext,
 
-        // Enable slide navigation via mouse wheel
-        mouseWheel: false,
+      // Enable slide navigation via mouse wheel
+      mouseWheel: false,
 
-        // Hides the address bar on mobile devices
-        hideAddressBar: true,
+      // Hides the address bar on mobile devices
+      hideAddressBar: true,
 
-        // Opens links in an iframe preview overlay
-        previewLinks: false,
+      // Opens links in an iframe preview overlay
+      previewLinks: false,
 
-        // Transition style
-        transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Transition style
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-        // Transition speed
-        transitionSpeed: 'default', // default/fast/slow
+      // Transition speed
+      transitionSpeed: 'default', // default/fast/slow
 
-        // Transition style for full page slide backgrounds
-        backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+      // Transition style for full page slide backgrounds
+      backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
 
-        // Number of slides away from the current that are visible
-        viewDistance: 3,
+      // Number of slides away from the current that are visible
+      viewDistance: 3,
 
-        // Parallax background image
-        parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+      // Parallax background image
+      parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
 
-        // Parallax background size
-        parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
+      // Parallax background size
+      parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
 
-        // Number of pixels to move the parallax background per slide
-        // - Calculated automatically unless specified
-        // - Set to 0 to disable movement along an axis
-        parallaxBackgroundHorizontal: null,
-        parallaxBackgroundVertical: null
-  });
+      // Number of pixels to move the parallax background per slide
+      // - Calculated automatically unless specified
+      // - Set to 0 to disable movement along an axis
+      parallaxBackgroundHorizontal: null,
+      parallaxBackgroundVertical: null
+    });
   </script>
 </body>
+
 </html>

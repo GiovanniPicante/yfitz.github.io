@@ -249,11 +249,16 @@ console.log('Hello World!'); // Kurze Kommentare bis Zeilenende</code>
       </section>
 
       <section>
-        <h3>Ausgaben auf dem Bildschirm:</h3>
+        <p style="text-decoration:underline;">Ausgaben auf dem Bildschirm:</p>
 
         <p>Text in popup box anzeigen:</p>
         <pre>
 <code class="javascript">alert('Hello World!');
+</code>
+</pre>
+<p>Antwort in popup box abfragen:</p>
+        <pre>
+<code class="javascript">confirm('Wirklich - Ja oder Nein');
 </code>
 </pre>
         <p>Eingabe in popup box abfragen:</p>
@@ -261,7 +266,6 @@ console.log('Hello World!'); // Kurze Kommentare bis Zeilenende</code>
 <code class="javascript"> eingabe = prompt('Geben Sie eine Eingabe ein:');
 </code>
 </pre>
-
         <p>Ausgabe einer Mitteilung auf Konsole:</p>
         <pre>
 <code class="javascript">console.log('Hello World!');
@@ -289,7 +293,7 @@ console.log('Hello World!'); // Kurze Kommentare bis Zeilenende</code>
       </section>
 	  
 	  <section>
-        <h3>Eine Lösung könnte so aussehen:</h3>
+        <p style="text-decoration:underline;">Eine Lösung könnte so aussehen:</p>
 
         <pre>
 <code class="html">&lt;!DOCTYPE html&gt;
@@ -304,6 +308,8 @@ console.log('Hello World!'); // Kurze Kommentare bis Zeilenende</code>
 	alert('Hello World!');	\\ Popup box
 	
 	eingabe = prompt("Eingabe einfügen:");\\ Popup-box Eingabeabfrage
+	
+	weiter = confirm("Weiter?"); \\ Popup-box Bestaetigung
 	
 	console.log(eingabe);	\\ Ausgabe auf Konsole
 	
@@ -329,14 +335,19 @@ console.log('Hello World!'); // Kurze Kommentare bis Zeilenende</code>
       <section>
         <h3>Deklarieren und Initialisieren</h3>
 
-        <p>Um eine Variable zu deklarieren (erzeugen) einfach <code>var</code> und den Variablenname.</p>
+        <p style="text-align:left;">Variable deklarieren (erzeugen) mit <code>var</code> und Variablenname.</p>
+		<p style="text-align:left;"> (Andere Möglichkeit <code>let</code> verwenden.) </p>
         <pre>
-<code class="javascript">var numberOfKittens;</code>
+<code class="javascript">
+ var numberOfKittens;
+
+ let numberOfDogs;</code>
 </pre>
 
-        <p>Der Variable einen Anfangswert geben - heisst Initialisierung.</p>
+        <p>Variable einen Anfangswert geben = Initialisierung.</p>
         <pre>
-<code class="javascript">var numberOfKittens = 5;</code>
+<code class="javascript">
+ var numberOfKittens = 5;</code>
 </pre>
       </section>
 
@@ -358,11 +369,13 @@ console.log('Hello World!'); // Kurze Kommentare bis Zeilenende</code>
         <h3>Namen von Variablen</h3>
 
         <ul>
-          <li>Der Name von Variablen ist case-sensitive (unterscheidet Gross- und Kleinbuchstaben).</li>
+          <li>ist case-sensitive</li>
 
-          <li>Der Variablenname muss eindeutig sein</li>
+          <li>muss eindeutig sein</li>
 
-          <li>Der Variablenname muss mit einem Buchstaben beginnen, <code>$</code>, oder <code>_</code>.</li>
+          <li>muss mit einem Buchstaben beginnen. <br>(oder auch $ oder _)</li>
+		  
+		  <li>kann $-Zeichen, Ziffern, Buchstaben oder <code>_</code> enthalten.</li>
 
           <li>Vermeide <a href="https://developer.mozilla.org/en/JavaScript/Reference/Reserved_Words">reservierte Wörter.</a>.
           </li>
@@ -371,16 +384,7 @@ console.log('Hello World!'); // Kurze Kommentare bis Zeilenende</code>
         </ul>
       </section>
 
-      <section>
-        <h3>Verwendung von Variablen</h3>
-
-        <p>Nach der Variablendeklaration, kann diese im Code verwendet werden.</p>
-        <pre>
-<code class="javascript">var numberOfKittens = 5;
-console.log(numberOfKittens);
-</code>
-</pre>
-      </section><!-- Data Types-->
+      <!-- Data Types-->
 
       <section>
         <h3>Datentypen</h3>
@@ -424,25 +428,31 @@ console.log(numberOfKittens);
       </section><!-- Numbers-->
 
       <section>
-        <h3>Zahlen</h3>
+        <p style="text-decoration:underline;">Zahlen</p>
 
-        <p>Variablen können Zahlenwerte haben, entweder Ganzezahlen (integer) oder Dezimalzahlen (floats).</p>
+        <p style="text-align:left;">Variablen können Zahlenwerte folgende haben: </p>
+		<ul>
+		<li>Ganzezahlen (integer) </li>
+		<li>Dezimalzahlen (floats).</li>
+		</ul>
         <pre>
-<code class="javascript">var numberOfKittens = 5;
-var cutenessRating = 9.6;
+<code class="javascript">var cats = 5;
+var dogs = 9.6;
+var y = 123e5;      // 12300000
+var z = 123e-5;     // 0.00123
 </code>
 </pre>
 
-        <p>JavaScript wandelt integer automatisch in float um.</p>
-
-        <p><code>NaN</code> = Not-A-Number</p>
-		<p> Zeichenkette in integer oder float umwandeln:</p>
+        <p>Zeichenketten in Zahlen umwandeln:</p>
+	
 		<pre>
-<code class="javascript">var string = "5";
-var ganzeZahl = parseInt(string);
-var floatZahl = parseFloat(string);
+<code class="javascript">var string = "5.3.4abc";
+var ganzeZahl = parseInt(string);		// 5
+var floatZahl = parseFloat(string);		// 5.3
 </code>
 </pre>
+		<p>Kann nicht umgewandelt werden => </p>
+		<p><code>NaN</code> = Not-A-Number</p>
       </section>
 
       <section>
@@ -532,12 +542,17 @@ var floatZahl = parseFloat(string);
 
         <p>Variablen können Zeichenketten(strings) enthalten. Die Zeichenketten stehen in einfachen oder doppelten Anführungszeichen.</p>
         <pre>
-<code class="javascript">var kittensName = 'Fluffy';</code>
+<code class="javascript">
+var hisName = 'Struppy';
+var herName = "Mausi";
+</code>
 </pre>
 
-        <p>If you want to use a quote in your string, you'll need to <b>escape</b> it with a backslash.</p>
+        <p>Ein Anführungszeichen <b>escape</b> mit Backslash</p>
         <pre>
-<code class="javascript">console.log('I\'d like to use an apostrophe');</code>
+<code class="javascript">
+console.log('Ich ein Zeichen\' hier');
+</code>
 </pre>
       </section>
 
