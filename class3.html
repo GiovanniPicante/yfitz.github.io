@@ -128,27 +128,28 @@ for (var i = 0; i &lt; rainbow.length; i++) {
       <section>
         <p style="text-decoration: underline;">Übungsaufgabe</p><br>
 
-        <p style=" text-align: left;">Erzeugen Sie in einer Schleife ein Zahlenarray der ersten 10 Vielfache von der Zahl 3 und lassen Sie diese anschließend auf dem Bildschirm ausgeben. </p><br>
+        <p style=" text-align: left;">Erzeugen Sie in einer Schleife ein Zahlenarray der ersten 10 Vielfachen von der Zahl 3. </p><br>
 
-        <p style=" text-align: left;">Verwenden Sie anschließend die for-Schleife um die Zahlen, die kleiner als 13 sind auszugeben. </p><br>
+        <p style=" text-align: left;">Lassen Sie in einer Schleife, die Vielfachen, die kleiner als 13 sind, ausgeben. </p><br>
         <p style=" text-align: left;text-decoration: underline;">Frage: </p>
-        <p style=" text-align: left;"> Wann ist eine forEach-Schleife anwendbar - wann ist eine for-Schleife besser </p>
+        <p style=" text-align: left;"> Wann ist eine forEach-Schleife anwendbar? </p>
+		<p style=" text-align: left;"> Wann muss eine for-Schleife verwendet werden?</p>
       </section>
 
       <section>
         <p style="text-decoration: underline;">Array Funktionen</p>
         <ul>
-          <li>push (Element anhängen) a b c&lt;- d</li>
-          <li>pop (Element abhängen) a b c-&gt; d</li>
-          <li>unshift (Element vorne anhängen) a-&gt;b c d</li>
-          <li>shift (Element vorne abhängen) a&lt;- b c d</li>
-          <li>reverse (Umkehren) d c b a</li>
-          <li>sort (Array sortieren) a b c d</li>
+          <li>push (Element hinten anhängen) </li>
+          <li>pop (Element hinten abhängen) </li>
+          <li>unshift (Element vorne anhängen)</li>
+          <li>shift (Element vorne abhängen) </li>
+          <li>reverse (Umkehren) </li>
+          <li>sort (Array sortieren) </li>
           <li>concat (zwei Arrays zusammenfügen)</li>
           <li>slice (Teile ermitteln)</li>
           <li>splice (Elemente entfernen , einfügen)</li>
         </ul><br><br>
-        <p><a href="https://www.w3schools.com/js/js_array_methods.asp">Arraymethoden </a>zum ausprobieren</p>
+        <p><a href="https://www.w3schools.com/js/js_array_methods.asp"> Arraymethoden </a> zum ausprobieren</p>
       </section>
       <!-- Objects -->
       <section>
@@ -156,47 +157,53 @@ for (var i = 0; i &lt; rainbow.length; i++) {
         <pre>
 <code class="javascript">
 var points = [40, 100, 1, 5, 25, 10];
-document.getElementById("demo").innerHTML = points;
 
-function myFunction() {
-    points.sort(function(a, b){
-    	if(a>b) {return 1;}
-   		if(b>a) {return -1;}
-        return 0;});
-    document.getElementById("demo").innerHTML = points;
-}
+points.sort(function(a, b){
+    	if(a>b) {return 1;}		// b vor a
+   	if(b>a) {return -1;}	        // a vor b
+        return 0;});			// egal
+		
 </code>
 </pre>
+
+Frage: Wie kann man absteigend sortieren? 
       </section>
 
 
       <section>
         <p style="text-decoration:underline;">Objekte</p>
 
-        <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects">Objekte</a> lassen uns eine Menge von Eigenschaften speichern. (Objekttyp ist vordefiniert: 'Object')</p>
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects">Objekte</a> (Objekttyp ist vordefiniert: 'Object')</p>
         <pre>
-<code class="javascript">var objektName = {
+<code class="javascript">
+Syntax: 
+
+var objektName = {
    eigenschaftsName:  eigenschaftsValue,
    eigenschaftsName:  eigenschaftsValue
 };
 </code>
 </pre>
         <pre>
-<code class="javascript">var user = {
+<code class="javascript">
+Beispiel:
+
+var user = {
   hometown: &#39;Atlanta, GA&#39;,
   hair: &#39;Auburn&#39;,
   likes: [&#39;knitting&#39;, &#39;code&#39;],
   birthday: {month: 10, day: 17}
-};</code>
+};
+</code>
 </pre>
       </section>
 
       <section>
         <p style="text-decoration:underline;">Zugriff auf Objekte</p>
 
-        <p>Mit der <strong><a href=
+        <p>Mit der <a href=
         "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_Accessors#Dot_notation">Punkt
-        Notation</a></strong> kann man auf das Objekt zugreifen.</p>
+        Notation</a> kann man auf das Objekt zugreifen.</p>
         <pre>
 <code class="javascript">var user = {
   hometown: &#39;Atlanta, GA&#39;,
@@ -206,36 +213,38 @@ function myFunction() {
 var usersHometown = user.hometown;</code>
 </pre><br>
 
-        <p>oder mit der <strong><a href=
+        <p>oder mit der <a href=
         "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_Accessors#Bracket_notation">Klammer
-        Notation</a></strong> (so wie bei Arrays)</p>
+        Notation</a> (so wie bei Arrays)</p>
         <pre>
-<code class="javascript">var usersHair = user[&#39;hair&#39;];</code>
+<code class="javascript">
+
+var usersHair = user[&#39;hair&#39;];
+
+</code>
 </pre>
       </section>
 
       <section>
         <p style="text-decoration:underline;">Objekte verändern</p>
 
-        <p>Mit beiden Notationen kann man die Eigenschaften eines Objekts verändern.</p>
         <pre>
 <code class="javascript">var user = {
   hometown: &#39;Atlanta, GA&#39;,
   hair: &#39;braun&#39;
 };
 
-user.hair = &#39;blond&#39;;</code>
-</pre>
+user.hair = 'blond';    			// Eigenschaft veraendern
 
-        <p>Neue Eigenschaften hinzufügen</p>
-        <pre>
-<code class="javascript">user.married = true;
+user.married = true; 			// Neue Eigenschaften hinzufügen
+
+delete user.married; 			// oder löschen.
+
+for(var key in user) {
+  alert( key );  		// Eigenschaften: hometown, hair und married
+  alert( user[key] ); 		// Werte: Atlanta, braun und true
+}
 </code>
-</pre>
-
-        <p>oder löschen.</p>
-        <pre>
-<code class="javascript">delete user.married;</code>
 </pre>
       </section>
       <section>
@@ -253,15 +262,17 @@ user.hair = &#39;blond&#39;;</code>
     console.log(&#39;Yum, I love &#39; + food);
   }
 };
+
+jolene.talk();
+
+jolene.eat(&#39;pizza&#39;);   //Methodenaufruf mit der Punkt-Notation
 </code>
 </pre>
+<ol>
+<li>Funktioniert die [] Notation auch mit Methoden?</li>
+<li>Was passiert in der for-in Schleife?</li>
+</ol>
 
-        <p>Methodenaufruf mit der Punkt-Notation:</p>
-        <pre>
-<code class="javascript">jolene.talk();
-
-jolene.eat(&#39;pizza&#39;);</code>
-</pre>
       </section>
 
       <section>
@@ -277,7 +288,9 @@ jolene.eat(&#39;pizza&#39;);</code>
 for (var i = 0; i &lt; users.length; i++) {
   var user = users[i];
   console.log(user.name + &#39; is &#39; + user.age + &#39; years old.&#39;);
-}</code>
+}
+
+</code>
 </pre>
       </section>
 
@@ -304,12 +317,12 @@ describeUser(jolene);</code>
       <section>
         <p style="text-decoration:underline;">Aufgaben</p>
         <p style="text-align:left;">1.Erzeugen Sie ein Objekt mit folgende Eigenschaften:</p>
-        <ul>
-          <li>Titel</li>
+		<ul>
+		  <li>Titel</li>
           <li>Verlag</li>
           <li>Seitenanzahl</li>
           <li>Autor</li>
-        </ul><br/><br>
+		</ul><br/><br>
         <p style="text-align:left;">2. Legen Sie jetzt ein Array von Büchern an.Erst einlesen und speichern,
           dann in einer Schleife ausgeben.</p><br>
         <p style="text-align:left;">3. Legen Sie eine Objekt Methode 'ausgeben' an.</p>
@@ -342,13 +355,17 @@ for (var i = 0; i < 3; i++) {
 </code>
 </pre>
       </section>
-      </section>
-
       <section>
-        <h4>Eigene Objekttypen definieren über Konstruktor = Funktion (beginnt mit Großbuchstaben)</h4>
+	  <p>Zusatzübung:
+Schreiben Sie ein Programm, das ein Objekt adresse[] definiert, dieses für die Eigenschaften name, anschrift, plz, ort mit Werten füllt und die Werte anschließend in einer HTML-Tabelle darstellt.
+
+Legen Sie mehrere Adressen in einem Array an. Und geben Sie diese in einer Tabelle aus.</p>
+	  </section>
+      <section>
+        <p style="text-decoration:underline;">Eigene Objekttypen definieren </p>
         <pre>
 <code class="javascript">
-function Ente (f, a){
+function Ente (f, a){	// über den Konstruktor wird ein Objekt definiert
     this.Farbe = f;
     this.Alter  = a;
     this.anzeigen = function(){
@@ -357,13 +374,14 @@ function Ente (f, a){
 }
 </code>
 </pre>
-        <p>Objekt erzeugen = Instanziieren <br/> (beginnt mit Kleinbuchstaben)</p>
+        <p>Objekt erzeugen = Instanziieren <br/></p>
         <pre>
 <code class="javascript">
 var duck = new Ente('weiss', 4);
 </code>
 </pre>
         <p> Dabei zeigt <strong> this </strong> auf das Objekt </p>
+		<p> Konstruktor -> Großbuchstabe , Instanz -> Kleinbuchstabe </p>
       </section>
 
       <section>
