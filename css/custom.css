@@ -30,6 +30,9 @@ div.left-align{
 p.credit, table.smalltext{
   font-size: 70%;
 }
+p {
+   text-align: left;
+}
 
 
 /*

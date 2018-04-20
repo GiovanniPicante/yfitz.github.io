@@ -82,13 +82,13 @@ if( window.location.search.match( /print-pdf/gi ) ) {
           <section>
             <h3>DOM Zugriff</h3>
             <p>Ihr Browser lädt die Weseite in ein <code>document</code> Objekt,
-			welches als Zugang zur Webseite dient.</p><br/>
-			   <p>Durch Verwendung des <code>document</code> kann man:</p>
-				<ul>
+			welches als Zugang zur Webseite dient.</p><br>
+			<p>Durch Verwendung des <code>document</code> kann man:</p><br>
+			<ol>
 				<li>Den Inhalt der Webseite beliebig verändern.</li>
 				<li>Eine HTML-Seite komplett neu erzeugen.</li>
 				<li>Auf existierende HTML-Elemente im DOM-Tree zugreifen und diese verändern.</li>
-				</ul>
+			</ol>
           </section>
 
           <section>
@@ -212,14 +212,52 @@ pageBody.style.backgroundColor = 'pink';
 pageBody.style.paddingTop = '10px';
 </code></pre>
           </section>
+		  
+		  <section>
+		  <p> Beispiel: Zugriff auf Elemente </p>
+		<pre><code class="html">
+&lt;input type="text" name="Vorname" value="" size=20&gt;
+&lt;input type="text" name="Nachname" value="" size=20&gt;
+&lt;input type="radio" name="Geschlecht"&gt; weiblich
+&lt;input type="radio" name="Geschlecht"&gt; männlich
+&lt;input type="radio" name="Geschlecht" checked="checked"&gt; keine Angabe
+&lt;input type="button" value="Anzeigen" name="Anzeige"&gt;
 
-          <section>
-          <h3>Aufgabe - los geht's!</h3>
-          <p>Erzeuge eine einfache HTML Seite oder <a href="class4.zip"> verwende diesen Code.</a>.</p>
-          <p>Isoliere ein Element (z.B. input Tag der Form) der Seite und verändere Attribute und ergänze einen neuen Style.</p>
-          </section>
+</code></pre>
+<p> Vorname, Nachname, Anzeigen ------ Radiobuttons </p>
+<ul style="font-size:25px;">
+	<li>window.document.Person.Vorname	--------	window.document.Person.Geschlecht[0]</li>
+	<li>window.document.Person.Nachname	------	window.document.Person.Geschlecht[1]</li>
+	<li>window.document.Person.Anzeigen	--------	window.document.Person.Geschlecht[2]</li>
+</ul>
 
-        <!--Manipulating the DOM-->
+		  </section>
+		  
+		  <section>
+		  <p> Was macht folgende Javascript Funktion ?</p>
+		  <pre><code class="javascript">	 
+function zeigen()
+{
+   var Anrede = '';
+   if (window.document.Person.Geschlecht[0].checked){
+		Anrede = 'Frau ';
+   }
+   else {
+        if (window.document.Person.Geschlecht[1].checked){
+            Anrede = 'Herr ';
+        }
+   }
+   var Name = window.document.Person.Vorname.value +
+              ' ' + window.document.Person.Nachname.value;
+   var Nachricht = 'Sie sind\n' + Anrede + ' ' + Name;
+   alert(Nachricht);
+} 
+
+</code></pre>
+</section>
+
+		  
+		  <!--Manipulating the DOM-->
           <section>
             <h3>DOM innerHTML</h3>
             <p>Jedes DOM Element hat eine <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML">innerHTML</a></code> Eigenschaft mit dem HTML und Inhalt dessen Kindelemente. Man kann diese Eigenschaft verwenden für den Zugriff oder die Manipulation des HTML Elements.</p>
@@ -243,39 +281,65 @@ warningParagraph.innerHTML = 'Danger Will Robinson!';</code></pre>
           </section>
 
           <section>
-            <h3>Erzeugung neuer HTML Elemente</h3>
-            <p>Das <code>document</code> Objekt hat ausserdem noch Methoden um neue Elemente zu erzeugen:</p>
-  <pre><code class="javascript">document.createElement(tagName);
-
-document.createTextNode(text);
-
-element.appendChild(element);</code></pre>
+			<h3>Aufgabe - los geht's!</h3>
+			<p>Erzeuge eine einfache HTML Seite oder <a href="class4.zip"> verwende diesen Code.</a>.</p><br>
+			<ol>
+				<li>Verändere Attribute den value des input Feldes auf 'Absenden' </li><br>
+				<li>Ergänze einen roten Rahmen für den div-Container</li><br>
+				<li>Verändere den Text des Paragraphen beliebig </li>
+			</ol>
           </section>
 
           <section>
-            <h3>Neue Elemente erzeugen: Beispiel Code</h3>
-<pre><code class="javascript">var <strong>pageBody</strong> = document.getElementsByTagName('body')[0];
+            <h3>Erzeugung neuer HTML Elemente</h3>
+            <p>Methode um neue Elemente (Tags) zu erzeugen:</p>
+			<pre><code class="javascript">
+	var e = document.createElement(tagName);
+			</code></pre>
+  
+			<p>Methode um neuen Text zu erzeugen:</p>
+			<pre><code class="javascript">
+	var e = document.createTextNode(text);
+			</code></pre>
 
-// create our image tag with attributes
-var <strong>newImg</strong> = document.createElement('img');
-<strong>newImg</strong>.src = 'http://placekitten.com/g/500/200';
-<strong>newImg</strong>.style.border = '1px solid black';
+			<p>Methode um neue Elemente in HTML einzufügen:</p>
+			<pre><code class="javascript">
+	element.appendChild(e);
+			</code></pre>
 
-// add our image to the body
-<strong>pageBody</strong>.appendChild(<strong>newImg</strong>);
+          </section>
 
-// create a paragraph tag with content
-var <strong>newParagraph</strong>  = document.createElement('p');
-var <strong>paragraphText</strong> = document.createTextNode('Squee!');
-<strong>newParagraph</strong>.appendChild(<strong>paragraphText</strong>);
+          <section>
+            <h3>Beispiel: Neue Elemente erzeugen</h3>
+	<pre><code class="javascript">
+	// Hole den body Tag 
+	var <strong>pageBody</strong> = document.getElementsByTagName('body')[0];
 
-// add our new paragraph to the body
-<strong>pageBody</strong>.appendChild(<strong>newParagraph</strong>);</code></pre>
+	// Erzeuge ein Image Tag mit Attribute 
+	var <strong>newImg</strong> = document.createElement('img');
+	<strong>newImg</strong>.src = 'http://placekitten.com/g/500/200';
+	<strong>newImg</strong>.style.border = '1px solid black';
+
+	// Füge Image Tag in den body ein
+	<strong>pageBody</strong>.appendChild(<strong>newImg</strong>);
+
+	// Erzeuge einen Paragraphen mit Text
+	var <strong>newParagraph</strong>  = document.createElement('p');
+	var <strong>paragraphText</strong> = document.createTextNode('Squee!');
+	<strong>newParagraph</strong>.appendChild(<strong>paragraphText</strong>);
+	
+	// Füge Paragraph Tag in den body ein
+	<strong>pageBody</strong>.appendChild(<strong>newParagraph</strong>);
+	</code></pre>
             </section>
 
             <section>
             <h3>Auf geht's</h3>
-            <p>Erzeuge neuen Paragraph und hänge es an ein <code> div </code> in der HTML Seite aus der vorherigen Übung.</p>
+			<ul> 
+				<li>Nehmen Sie die HTML-Seite aus der vorherigen Übung </li><br>
+				<li>Erzeugen Sie einen neuen Paragraphen mit dem Text 'Neuer Paragraph'</li><br>
+				<li>Hängen Sie diesen an einen <code> div</code>-Container</li>
+			</ul>
           </section>
 
       <!-- Events -->
@@ -310,137 +374,115 @@ var <strong>paragraphText</strong> = document.createTextNode('Squee!');
         </section>
 
         <section>
-          <p>Functionsaufruf direkt in HTML</p>
-<pre><code class="html">&lt;button id="myBtn" onclick="sayHi()"&gt;Click Me!&lt;/button&gt;
-</code></pre>
-<pre><code class="javascript">function sayHi (event) {
-  alert('Hi!');
-};</code></pre>
-</section>
+			<p>Funktionsaufruf direkt in HTML für folgenden HTML-Tag</p>
+			<pre><code class="html">
+	&lt;button id="myBtn" onclick="sayHi()"&gt;Click Me!&lt;/button&gt;
+			</code></pre>
+			<p>Funktionsdeklaration </p>
+			<pre><code class="javascript">
+	function sayHi (event) {
+		alert('Hi!');
+	};
+			</code></pre>
+		</section>
+		<section>
+			<p>Folgender HTML-Tag soll EventListener erhalten</p>
+			<pre><code class="html">
+	&lt;button id="myBtn"&gt;Click Me!&lt;/button&gt;
+			</code></pre>
+			<p>EventListener anfügen  </p>
+			<pre><code class="javascript">
+	var button = document.getElementById("myBtn");
+	button.<strong>addEventListener</strong>("click", function (event) {
+		alert("Hi!");
+	});
+			</code></pre>
+			<p>oder so</p>
+			<pre><code class="javascript">
+	var button = document.getElementById("myBtn");
+	var sayHi = function (event) {
+		alert("Hi!");
+	};
+	button.addEventListener("click", sayHi);</code></pre>
+        </section>
 <section>
-          <p>Functionaufruf in JavaScript mit addEventListener</p>
-<pre><code class="html">&lt;button id="myBtn"&gt;Click Me!&lt;/button&gt;
-</code></pre>
-<pre><code class="javascript">var button = document.getElementById("myBtn");
+			<h3>currentTarget</h3>
+			<p><code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/currentTarget">currentTarget</a></code> von dem Element referenziert das Element des Eventlistener.</p>
+			<pre><code class="html">
+	&lt;button id="myBtn"&gt;Click Me!&lt;/a&gt;
+			</code></pre>
+			<p>Dieser Programmcode ergänzt Style und Text an den angeklickten Button.</p>
+			<pre><code class="javascript">
+	myButton = document.getElementById("myBtn");
 
-button.<strong>addEventListener</strong>("click", function (event) {
-  alert("Hi!");
-});</code></pre>
-<p>oder</p>
-<pre><code class="javascript">var button = document.getElementById("myBtn");
-
-var sayHi = function (event) {
-  alert("Hi!");
-};
-
-button.addEventListener("click", sayHi);</code></pre>
-        </section>
-
-
-        <section>
-          <h3>Aufgabe</h3>
-          <p>Kleine Javascript Übung<a href="class4.zip"> unter Verwendung eines Beispielcodes</a>.</p>
-          <p>Lasse JavaScript Code auslösen nach <code>mouseover</code> Event.</p>
-        </section>
-
-      <!-- More Events -->
-        <section>
-          <h3>Verhinderung von Defaults</h3>
-          <p>Elemente wie z.B links und checkboxes haben ein Default Verhalten, welches durch den Browser vorgegeben ist. Zusätzlich hat das  <code>Event</code> Objekt eine Methode um <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault">dieses Default Verhalten zu verhindern.</a></p>
-          <p>Unser anchor link in HTML</p>
-<pre><code class="html">&lt;a id="myLink" href="https://www.girldevelopit.com"&gt;GDI&lt;/a&gt;
-</code></pre>
-<p>Programmcode verhindert, dass der href beim Anklicken ausgeführt wird.</p>
-<pre><code class="javascript">var link = document.getElementById("myLink");
-
-link.addEventListener("click", function(event) {
-  event.preventDefault();
-});
-</code></pre>
+	myButton.addEventListener("click", function(event) {
+		btn = event.currentTarget;
+		btn.style.backgroundColor = 'red';
+		btn.innerHTML = 'Clicked!';
+	};
+			</code></pre>
         </section>
 
         <section>
-          <h3>currentTarget</h3>
-          <p><code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/currentTarget">currentTarget</a></code> von dem Element referenziert das Element des Eventlistener.</p>
-          <pre><code class="html">&lt;button id="myBtn"&gt;Click Me!&lt;/a&gt;</code></pre>
-          <p>Dieser Programmcode ergänzt Style und Text an den angeklickten Button.</p>
-<pre><code class="javascript">myButton = document.getElementById("myBtn");
-
-myButton.addEventListener("click", function(event) {
-  btn = event.currentTarget;
-
-  btn.style.backgroundColor = 'red';
-  btn.innerHTML = 'Clicked!';
-};</code></pre>
-<p>Man kann auch Programmcode unter Verwendung der Referenz auf das Schlüsselwort <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">this</a></code> als "target".
+			<h3>Aufgabe</h3>
+			<p>Verwende wieder den Code von der vorherigen Übung.</p><br>
+			<p>Erzeuge zwei EventListener für das Bild:</p>
+			<ul>
+				<li>Lasse ein Popup erscheinen nach <code>mouseover</code> Event </li><br>
+				<li>Lasse das Bild sich verändern wenn es angeklickt wird. </li><br>
+			</ul>
         </section>
 
         <section>
-          <h3>Aufgabe  los geht's!</h3>
-          <p>Schreibe ein Programmcode der target und diesen Link verwendet: </p>
-<pre><code class="html">&lt;a href="https://www.w3schools.com/Jsref/event_target.asp" id="myLink"&gt;Target in w3schools&lt;/a&gt;
-</code></pre>
-          <p>Wenn der User auf den Link klickt, soll eine Fehlermeldung angezeigt werden anstatt der Webseite w3schools.</p>
+			<h3>Forms</h3>
+			<pre><code class="html">
+  &lt;form id="userForm"&gt;
+	&lt;label for="name"&gt;First Name:&lt;/label&gt;
+	&lt;input type="text" id="firstName"&gt;
+	&lt;input type="radio" name="married" value="Yes" checked &gt; Yes
+	&lt;input type="radio" name="married" value="No" &gt; No
+	&lt;input type="submit" id="submitBtn" value="Submit" &gt;
+  &lt;/form&gt;
+			</code></pre>
+			<p>Form Daten ermitteln mit der <code>value</code> Methode.</p>
+			<pre><code class="javascript">
+	var name = document.getElementById('firstName').value;
+
+	console.log(name);
+			</code></pre>
         </section>
-      <!-- User input -->
 
         <section>
+			<p>Radio bzw Submit Werte (values)</p>
           
-          <h3>Forms</h3>
-          <p>Man kann Information sammeln um diesen zu verwenden - z.B. in einer HTML form</p>
-<pre><code class="html">&lt;form id="userForm"&gt;
-  &lt;label for="name"&gt;First Name:&lt;/label&gt;
-  &lt;input type="text" id="firstName"/&gt;
-  &lt;input type="radio" name="married" value="Yes" checked /&gt; Yes
-  &lt;input type="radio" name="married" value="No" /&gt; No
-  &lt;input type="submit" id="submitBtn" value="Submit" /&gt;
-&lt;/form&gt;
-</code></pre>
+			<pre><code class="javascript">
+	var radios = document.getElementsByName('married');
+	for (var i = 0; i &lt; radios.length; i++) {
+
+	    if (radios[i].checked) {	// Ist dieser ausgewählt?
+	        var radioButtonValue = radios[i].value;  
+	        break;				
+	    }
+	}
+			</code></pre>
+       
+			<p>Um die Werte der Form beim submit zu ermitteln, verhindere die Default Aktion!</p>
+			<pre><code class="javascript">
+	var submitButton = document.getElementById('submitBtn');
+	submitButton.addEventListener("click", function(event) {
+	    event.preventDefault();
+
+	    var name = document.getElementById('firstName').value;
+	    console.log(name);
+	})
+			</code></pre>
         </section>
 
         <section>
-          <h3>Form Daten ermitteln</h3>
-          <p>Form Daten ermitteln mit der <code>value</code> Methode.</p>
-<pre><code class="javascript">var name = document.getElementById('firstName').value;
-console.log(name);
-</code></pre>
-          <p>Der Wert einer Form kann jederzeit ermittelt werden. Sogar wenn ein Event wie z.B. <code>blur</code> eintritt. <br> (das Form Element verliert den Fokus).</p>
-        </section>
-
-        <section>
-          <h3>Radio Buttons</h3>
-          <p>Radio buttons haben normalerweise keine IDs, so dass man eine <code>for</code> loop verwenden muss um die Werte zu ermitteln von jedem radio:</p>
-<pre><code class="javascript">var radios = document.getElementsByName('married');
-
-var length = radios.length;
-
-for (var i = 0; i &lt; length; i++) {
-  if (radios[i].checked) {
-    var radioButtonValue = radios[i].value;
-    // only one radio can be checked, so stop now
-    break;
-  }
-}
-</code></pre>
-        </section>
-
-        <section>
-          <h3>Submit buttons</h3>
-          <p>Um die Werte der Form beim submit zu ermitteln, verhindere die Default Aktion!</p>
-<pre><code class="javascript">var submitButton = document.getElementById('submitBtn');
-
-submitButton.addEventListener("click", function(event) {
-  event.preventDefault();
-
-  var name = document.getElementById('firstName').value;
-  console.log(name);
-})
-</code></pre>
-        </section>
-
-        <section>
-          <h3>Entwickle es!</h3>
-          <p>Sammle die Werte einer Input Box einer Seite. Verwende es innerhalb einer Funktion. Zum Beispiel, sammle eine Zahl ein, multipliziere diese mit fünf oder aber sammle einen Namen ein und zeige eine Begrüßung.</p>
+			<h3>Entwickle es!</h3>
+			<p>Sammle den Input Wert der Übungs Seite ein. </p>
+			<p>Verwende diesen Wert als Ausgabe im Popup </p>
+		  
         </section>
 
 
