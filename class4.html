@@ -86,7 +86,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
            
             <h3>DOM Zugriff per Id</h3>
             <p>Man kann die <code>id</code> verwenden um auf ein HTML-Element zuzugreifen mit folgenden Methode:</p>
-<pre><code class="javascript">document.getElementById(id);
+<pre><code class="javascript"> Syntax: var p = document.getElementById(id);
 </code></pre>
           <p>Beispiel:</p>
 <pre><code class="html">&lt;img id="kittenPic" src="http://placekitten.com/g/200/300" alt="cat"/&gt;
@@ -99,9 +99,9 @@ if( window.location.search.match( /print-pdf/gi ) ) {
           <section>
             <h3>DOM Zugriff per Tag Name</h3>
             <p>Man kann auf HTML-Elemente zugreifen über den <code>tag</code> durch folgende Methode:</p>
-<pre><code class="javascript">document.getElementsByTagName(tagName);
+<pre><code class="javascript">Syntax: var liste = document.getElementsByTagName(tagName);
 </code></pre>
-            <p>Um folgendes zu finden:</p>
+            <p>Beispiel: Um folgendes zu finden:</p>
 <pre><code class="html">&lt;ul&gt;
   &lt;li&gt;Daisy&lt;/li&gt;
   &lt;li&gt;Tulip&lt;/li&gt;
@@ -119,22 +119,22 @@ for (var i = 0; i &lt; listItems.length; i++) {
             <h3>DOM Zugriff: HTML 5</h3>
             <p>In neueren Browsern kann man auch folgende Methoden verwenden: <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName">getElementsByClassName</a></code>, <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector">querySelector</a></code>, and <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll">querySelectorAll</a></code>.</p><br>
             <p>Available in <a href="http://caniuse.com/#search=getElementsByClassName">IE9+, FF3.6+, Chrome 17+, Safari 5+</a>:</p>
-<pre><code class="javascript">document.getElementsByClassName(className);
+<pre><code class="javascript">Syntax: var liste = document.getElementsByClassName(className);
 </code></pre>
           <p>Available in <a href="http://caniuse.com/#search=querySelectorAll">IE8+, FF3.6+, Chrome 17+, Safari 5+</a>:</p>
-<pre><code class="javascript">document.querySelector(cssQuery);
-document.querySelectorAll(cssQuery);
+<pre><code class="javascript">Syntax: var element = document.querySelector(cssQuery);
+var liste = document.querySelectorAll(cssQuery);
 </code></pre>
-			<p> Dabei ist 'cssQuery' ein CSS-Selektor.</p>
+			<p> Dabei ist 'cssQuery' ein CSS-Selektor.(z.B. "#footer p" entspr. Paragraphen im Tag mit id footer</p>
           </section>
 
           <section>
             <h3>getElement vs. getElements</h3>
             <p>Jede Methode die mit <code>getElement</code> beginnt, wird ein <strong>einziges</strong> Element liefern.</p>
-<pre><code class="javascript">document.getElementById('uniqueID'); 
+<pre><code class="javascript">Syntax: var element = document.getElementById('uniqueID'); 
 </code></pre><br>
           <p>Jede Methode die mit <code>getElements</code> beginnt, wird ein <strong>array</strong> von Elementen liefern. Um ein Element zu bekommen muss man Klammern [] verwenden.</p>
-<pre><code class="javascript">document.getElementsByTagName('p'); 
+<pre><code class="javascript">var liste = document.getElementsByTagName('p'); 
 
 var specificParagraph = document.getElementsByTagName('p')[2];
 </code></pre>
@@ -205,22 +205,25 @@ pageBody.style.paddingTop = '10px';
           </section>
 		  
 		  <section>
-		  <p> Beispiel: Zugriff auf Elemente </p>
-		<pre><code class="html">
-&lt;input type="text" name="Vorname" value="" size=20&gt;
-&lt;input type="text" name="Nachname" value="" size=20&gt;
-&lt;input type="radio" name="Geschlecht"&gt; weiblich
-&lt;input type="radio" name="Geschlecht"&gt; männlich
-&lt;input type="radio" name="Geschlecht" checked="checked"&gt; keine Angabe
-&lt;input type="button" value="Anzeigen" name="Anzeige"&gt;
-
-</code></pre>
-<p> Vorname, Nachname, Anzeigen ------ Radiobuttons </p>
-<ul style="font-size:25px;">
-	<li>window.document.Person.Vorname	--------	window.document.Person.Geschlecht[0]</li>
-	<li>window.document.Person.Nachname	------	window.document.Person.Geschlecht[1]</li>
-	<li>window.document.Person.Anzeigen	--------	window.document.Person.Geschlecht[2]</li>
-</ul>
+			<p> Beispiel: Zugriff auf Elemente eines Formulars </p>
+			<pre><code class="html">
+&lt;form name="Person"&gt;
+	&lt;input type="text" name="Vorname" value="" size=20&gt;
+	&lt;input type="text" name="Nachname" value="" size=20&gt;
+	&lt;input type="radio" name="Geschlecht"&gt; weiblich
+	&lt;input type="radio" name="Geschlecht"&gt; männlich
+	&lt;input type="radio" name="Geschlecht" checked="checked"&gt; keine Angabe
+	&lt;input type="button" value="Anzeigen" name="Anzeige"&gt;
+&lt;/form&gt;
+			</code></pre>
+			<p> Im Formular kann über den Namen zugegriffen werden z.B. </p>
+			<p style="font-size:25px;"> Vorname, Nachname, Anzeigen, Radiobutton </p>
+			<ul style="font-size:25px;">
+				<li>window.document.Person.Vorname	</li>
+				<li>window.document.Person.Nachname	</li>
+				<li>window.document.Person.Anzeigen	]</li>
+				<li>window.document.Person.Geschlecht[0] .. [2] </li>
+			</ul>
 
 		  </section>
 		  
@@ -276,8 +279,8 @@ warningParagraph.innerHTML = 'Danger Will Robinson!';</code></pre>
 			<p>Erzeuge eine einfache HTML Seite oder <a href="class4.zip"> verwende diesen Code.</a>.</p><br>
 			<ol>
 				<li>Verändere Attribute den value des input Feldes auf 'Absenden' </li><br>
-				<li>Ergänze einen roten Rahmen für den div-Container</li><br>
-				<li>Verändere den Text des Paragraphen beliebig </li>
+				<li>Ergänze einen roten Rahmen für den ersten div-Container</li><br>
+				<li>Verändere den Text des Paragraphen im Footer beliebig </li>
 			</ol>
           </section>
 
